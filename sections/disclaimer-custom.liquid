@@ -1,0 +1,119 @@
+<div class="disclaimer-section page-width">
+  <div class="disclaimer-box">
+    <h2 class="disclaimer-heading">{{ section.settings.heading | escape }}</h2>
+    <div class="disclaimer-content">
+      {{ section.settings.content }}
+    </div>
+  </div>
+</div>
+
+<style>
+  .disclaimer-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .disclaimer-box {
+    border: 3px solid #000000;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Removed opacity: 0 to ensure visibility */
+  }
+
+  /* Hover effect for creativity */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  /* Force visibility overrides */
+  .disclaimer-section {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .disclaimer-heading {
+    font-size: 2.4rem;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #000000;
+  }
+
+  .disclaimer-content ul {
+    list-style-type: none; /* We'll use custom dashes roughly like text */
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .disclaimer-content p {
+    margin: 0 0 10px 0;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #000000;
+  }
+  
+  /* If user enters a list in RTE */
+  .disclaimer-content li {
+    margin-bottom: 12px;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #000000;
+    position: relative;
+    padding-left: 15px;
+  }
+
+  .disclaimer-content li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .disclaimer-box {
+      padding: 20px;
+      border-width: 2px;
+    }
+    
+    .disclaimer-heading {
+      font-size: 2rem;
+    }
+    
+    .disclaimer-content li,
+    .disclaimer-content p {
+      font-size: 1.4rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Disclaimer Box",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "DISCLAIMER:",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Disclaimer Text",
+      "default": "<ul><li>QuickPro Panels are NOT intended for permanent use.</li><li>SHIPPING MUST BE TO A PLACE OF BUSINESS WITH A DOCK OR A FORKLIFT OR THE CUSTOMER WILL BE CHARGED ANOTHER $200 IF IT IS A RESIDENTIAL ADDRESS</li><li>Do NOT tie animals to panel.</li><li>Foam covers sent with panel to avoid scratching only. Welds are painted only to avoid rust.</li><li>Recommended to 'zig-zag' or use angles instead of straight lines when connecting more than 2 panels</li><li>Recommended to separate animals (horses) from one another if they fight between panel to avoid risks (shown in picture)</li><li>QuickPro Panels, QP Panels, LLC is in NO way responsible for ANY accidents with panels.</li></ul>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Disclaimer Box"
+    }
+  ]
+}
+{% endschema %}

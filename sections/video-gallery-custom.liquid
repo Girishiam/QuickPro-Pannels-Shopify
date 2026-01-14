@@ -1,0 +1,154 @@
+<div class="video-gallery-section page-width section-{{ section.id }}-padding">
+  <div class="video-gallery-header center">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="video-gallery-title">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+    {%- if section.settings.description != blank -%}
+      <div class="video-gallery-description rte">{{ section.settings.description }}</div>
+    {%- endif -%}
+  </div>
+
+  <div class="video-gallery-grid">
+    {%- for block in section.blocks -%}
+      <div class="video-gallery-item">
+        {%- if block.settings.video != blank -%}
+          {{ block.settings.video | video_tag: image_size: '600x', loop: true, controls: true, muted: false, class: 'video-element' }}
+        {%- else -%}
+          <div class="video-placeholder">
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+        {%- if block.settings.caption != blank -%}
+          <p class="video-caption">{{ block.settings.caption | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .video-gallery-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .video-gallery-header {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .video-gallery-title {
+    font-size: 3.6rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #1E293B;
+  }
+  .video-gallery-description {
+    font-size: 1.6rem;
+    color: #475569;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .video-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns as seen in screenshot */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .video-gallery-item {
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 9 / 16; /* Portrait ratio for reel-style videos */
+  }
+
+  .video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f3f3;
+  }
+
+  .video-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: #fff;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 750px) {
+    .video-gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Video Gallery",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "See QuickPro Panels in Action",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>Watch how easy it is to set up and use our panels.</p>",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Shopify-hosted Video"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Gallery",
+      "blocks": [
+        {
+          "type": "gallery_video"
+        },
+        {
+          "type": "gallery_video"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

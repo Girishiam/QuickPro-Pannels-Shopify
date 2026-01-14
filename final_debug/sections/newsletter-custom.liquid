@@ -1,0 +1,275 @@
+<div class="newsletter-section-outer">
+  <div class="newsletter-custom-section page-width scroll-trigger animate--slide-in">
+  <div class="newsletter-wrapper">
+    <!-- Left Side: Heading -->
+    <div class="newsletter-content">
+      <h2 class="newsletter-heading">{{ section.settings.heading | escape }}</h2>
+    </div>
+
+    <!-- Right Side: Form -->
+    <div class="newsletter-form-container">
+      {% form 'customer', class: 'newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        
+        {%- if form.posted_successfully? -%}
+          <div class="form-status form-status--success" tabindex="-1" autofocus>
+            {{ 'emails.general.subscribe_success' | t }}
+          </div>
+        {%- endif -%}
+
+        <div class="form-fields-row">
+          <div class="field-group">
+            <label for="NewsletterForm--name" class="field-label">Full Name *</label>
+            <input
+              id="NewsletterForm--name"
+              type="text"
+              name="contact[note][name]"
+              class="field-input"
+              value="{{ form.name }}"
+              aria-required="true"
+              required
+              placeholder="Full Name"
+              style="width: 100% !important; max-width: 100% !important; box-sizing: border-box !important;"
+            >
+          </div>
+          <div class="field-group">
+            <label for="NewsletterForm--email" class="field-label">Email *</label>
+            <input
+              id="NewsletterForm--email"
+              type="email"
+              name="contact[email]"
+              class="field-input"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              style="width: 100% !important; max-width: 100% !important; box-sizing: border-box !important;"
+              autocapitalize="off"
+              autocomplete="email"
+              required
+              placeholder="Email"
+            >
+          </div>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="newsletter_consent" name="contact[note][consent]" required>
+          <label for="newsletter_consent" class="checkbox-label">
+            {{ section.settings.consent_text }}
+          </label>
+        </div>
+
+        <button type="submit" class="newsletter-submit-btn" name="commit" style="width: 100% !important; max-width: 100% !important; box-sizing: border-box !important;">
+          {{ section.settings.button_label }}
+        </button>
+      {% endform %}
+    </div>
+  </div>
+  </div>
+</div>
+
+<style>
+  .newsletter-section-outer {
+    background-color: {{ section.settings.bg_color }};
+    width: 100%;
+  }
+
+  .newsletter-custom-section {
+    padding: 100px 0;
+    color: #ffffff;
+  }
+
+  .newsletter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .newsletter-content {
+    flex: 0.8; /* Give less space to text to allow form to be wider */
+  }
+
+  .newsletter-heading {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .newsletter-form-container {
+    flex: 2; /* Maximize width for the form elements */
+    background-color: transparent; /* Removed light block background as requested */
+    padding: 0; 
+    width: 100%;
+  }
+
+  .newsletter-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-fields-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%; /* Ensure the row itself is full width */
+  }
+
+  .field-group {
+    flex: 1;
+    min-width: 0; /* Prevent flex overflow */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .field-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+    display: block;
+    opacity: 0.9;
+  }
+
+  .field-input {
+    padding: 16px; /* Match button padding for consistent height */
+    border-radius: 4px;
+    border: 1px solid transparent;
+    font-size: 1.6rem;
+    width: 100%;
+    color: #1e1e1e;
+    background-color: #ffffff;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    height: 100%; /* Ensure full height consistency */
+    box-sizing: border-box;
+    display: block; /* Ensure it behaves as a block */
+  }
+
+  .field-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  }
+
+  .checkbox-group {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding-top: 5px;
+  }
+
+  .checkbox-group input[type="checkbox"] {
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+    accent-color: #ffffff;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .checkbox-label {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    font-weight: 300;
+  }
+
+  .newsletter-submit-btn {
+    width: 100% !important; /* Force full width to override any potential theme button styles */
+    max-width: 100%;
+    margin: 20px 0 0 0; 
+    padding: 16px 40px; /* Matched padding with inputs */
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid transparent; /* Match input border to ensure exact same height */
+    box-sizing: border-box; /* Include padding/border in width calculation */
+    border-radius: 8px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: capitalize; /* Matches "Submit" casing in image usually, or Uppercase if preferred */
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .newsletter-submit-btn:hover {
+    background-color: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 900px) {
+    .newsletter-wrapper {
+      flex-direction: column;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .newsletter-heading {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .form-fields-row {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .newsletter-submit-btn {
+      width: 100%;
+      max-width: 100%;
+      min-width: auto;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Newsletter",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Submit",
+      "label": "Button Label"
+    },
+    {
+      "type": "text",
+      "id": "consent_text",
+      "default": "By checking this box, I consent to receive marketing and promotional messages, including special offers, discounts, new product updates among others.",
+      "label": "Consent Text"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#646464"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Newsletter"
+    }
+  ]
+}
+{% endschema %}

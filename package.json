@@ -1,0 +1,15 @@
+{
+  "name": "quickpro-pannels",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "shopify theme dev --store quickpro-pannels.myshopify.com",
+    "build": "shopify theme check && shopify theme build",
+    "lint": "shopify theme check"
+  },
+  "devDependencies": {
+    "@shopify/cli": "latest",
+    "@shopify/theme": "latest"
+  },
+  "author": ""
+}

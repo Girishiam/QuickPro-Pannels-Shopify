@@ -1,0 +1,206 @@
+<footer class="footer-custom">
+  <div class="page-width footer-container">
+    <!-- Logo Column -->
+    <div class="footer-col footer-logo">
+      {%- if section.settings.logo != blank -%}
+        <img
+          src="{{ section.settings.logo | image_url: width: 300 }}"
+          alt="{{ shop.name }}"
+          width="{{ section.settings.logo_width }}"
+          height="{{ section.settings.logo.height }}"
+          class="footer-logo-img"
+        >
+      {%- else -%}
+        <img
+          src="{{ 'logo.webp' | asset_url }}"
+          alt="{{ shop.name }}"
+          width="{{ section.settings.logo_width }}"
+          height="auto"
+          class="footer-logo-img"
+        >
+      {%- endif -%}
+    </div>
+
+    <!-- Social Column -->
+    <div class="footer-col footer-social">
+      <a href="{{ section.settings.facebook_url }}" class="social-link" aria-label="Facebook">
+        <svg fill="currentColor" class="icon icon-facebook" viewBox="0 0 24 24" aria-hidden="true">
+           <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Contact & Copyright Column -->
+    <div class="footer-col footer-info">
+      <div class="footer-contact-row">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-email" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <a href="mailto:{{ section.settings.email }}" class="footer-email-link">
+          {{ section.settings.email }}
+        </a>
+      </div>
+      <div class="footer-copyright">
+        Copyright &copy; {{ 'now' | date: "%Y" }} QP PANELS, L.L.C. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-custom {
+    background-color: {{ section.settings.bg_color }};
+    color: #ffffff;
+    padding: 40px 0;
+    width: 100%;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap; /* responsive wrap */
+    gap: 30px;
+  }
+
+  /* Logo Column */
+  .footer-logo {
+    flex: 1;
+    min-width: 200px;
+  }
+  .footer-logo-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Social Column - Centered(ish) as per image, but strictly left of center info */
+  .footer-social {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .social-link {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+  }
+  .social-link:hover {
+    opacity: 0.8;
+  }
+  .icon-facebook {
+    width: 36px;
+    height: 36px;
+    fill: currentColor;
+  }
+
+  /* Info Column */
+  .footer-info {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligned left as per image text block */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footer-contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+
+  .icon-email {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-email-link {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .footer-email-link:hover {
+    text-decoration: underline;
+  }
+
+  .footer-copyright {
+    font-size: 1.2rem;
+    font-weight: bold; /* Looks bold in image */
+    opacity: 0.9;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+    }
+    
+    .footer-logo, .footer-social, .footer-info {
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .footer-info {
+      align-items: center;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "tag": "section",
+  "class": "section-footer",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#545454"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "default": 150,
+      "unit": "px",
+      "label": "Logo width"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook Link"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address",
+      "default": "order@quickpropanels.com"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer"
+    }
+  ]
+}
+{% endschema %}

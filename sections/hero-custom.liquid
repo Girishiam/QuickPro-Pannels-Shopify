@@ -1,0 +1,164 @@
+<div class="hero-custom">
+  <!-- Overlay handled by CSS ::before -->
+  <div class="hero-content">
+    <div class="hero-logo-wrapper">
+      <img src="{{ 'logo.webp' | asset_url }}" alt="QuickPro Panels" class="hero-logo" width="300" height="auto" loading="eager">
+    </div>
+    <h1 class="hero-slogan">
+      {{ section.settings.heading | escape }}
+    </h1>
+  </div>
+</div>
+
+<style>
+  .hero-custom {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    {%- if section.settings.image != blank -%}
+      background-image: url("{{ section.settings.image | image_url: width: 2000 }}");
+    {%- else -%}
+      background-image: url("{{ 'hero.jpg' | asset_url }}");
+    {%- endif -%}
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 
+       This creates the "Parallax" effect where the image stays still 
+       while the page scrolls over it. 
+    */
+    background-attachment: fixed; 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: -20px;
+  }
+
+  /* Robust Pseudo-element Overlay using ::before for reliability */
+  .hero-custom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .section-hero-full {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100vw;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+
+  .hero-logo-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .hero-logo {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    transform: scale(0.9);
+    animation: logoPop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  .hero-slogan {
+    color: #FFFFFF;
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes logoPop {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Mobile Fallback: Parallax (fixed) often breaks on mobile, so we use scroll */
+  @media screen and (max-width: 768px) {
+    .hero-custom {
+      background-attachment: scroll;
+    }
+    .hero-logo {
+      max-width: 250px;
+    }
+    .hero-slogan {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Full Page Hero",
+  "tag": "section",
+  "class": "section-hero-full",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Fast Setup. Easy Storage. Built for Champions.",
+      "label": "Slogan Text"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Full Page Hero"
+    }
+  ]
+}
+{% endschema %}

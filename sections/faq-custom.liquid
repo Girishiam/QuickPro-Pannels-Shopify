@@ -1,0 +1,111 @@
+<div class="faq-custom page-width section-{{ section.id }}-padding">
+  <div class="faq-container">
+    <h2 class="title center">{{ section.settings.heading | escape }}</h2>
+    {%- for block in section.blocks -%}
+      <div class="faq-item">
+        <details>
+          <summary>
+            {{ block.settings.question | escape }}
+            <span class="icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            {{ block.settings.answer }}
+          </div>
+        </details>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .faq-custom {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid #E2E8F0;
+    transition: background-color 0.2s ease;
+  }
+  .faq-item:hover {
+    background-color: #fafafa;
+  }
+  .faq-item summary {
+    padding: 2rem 1rem; /* More generous padding */
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.8rem; /* Larger, clearer text */
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #0f172a; /* Darker slate/black */
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-answer {
+    padding: 0 1rem 2rem 1rem;
+    color: #475569;
+    line-height: 1.7;
+    font-size: 1.6rem;
+  }
+  .faq-item details[open] .icon {
+    transform: rotate(45deg);
+    color: #2563EB; /* Blue accent on active */
+  }
+  .icon {
+    font-size: 2rem;
+    font-weight: 300;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Have Questions About Our Products?",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "default": "Question text",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "default": "<p>Answer text</p>",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom FAQ",
+      "blocks": [
+        {
+          "type": "question"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

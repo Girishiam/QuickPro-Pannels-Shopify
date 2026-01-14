@@ -1,0 +1,181 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-custom",
+      "settings": {
+        "heading": "Fast Setup. Easy Storage. Built for Champions.",
+        "text": "<p>Portable Horse Stalls & Pens – Handmade in the USA</p>",
+        "image": "shopify:\/\/shop_images\/placeholder_hero.jpg",
+        "bg_color": "#1E293B",
+        "text_color": "#FFFFFF",
+        "button_label": "Shop Now",
+        "button_link": "shopify:\/\/collections\/all"
+      }
+    },
+    "about_us": {
+      "type": "about-us-custom",
+      "settings": {
+        "subheading": "About Us",
+        "heading": "Why QuickPro Panels?",
+        "quote_text": "<p>Whether you are on the go to a rodeo, jackpot, trail ride, camping, or even need a temporary fence or stall at home, QuickPro Panels are your solution for quick, easy stalls or fencing. I have been involved in rodeo my entire life, being the footsteps of a fourth generation in my family to do so. I have traveled to rodeos all over and having panels has been a lifesaver at times when there are no stalls, they are very small or not safe, or to lessen the risk of contracting illnesses while being in barns with other horses. I am extremely picky where I keep my horses and have one that has escaped from my old panels, but has been unable to escape out of QuickPro Panels. I invented these for quick, functioning convenience & have a patent pending. QuickPro Panels take less panels to provide more stall area.</p>",
+        "quote_author": "Mandi Jo Fox",
+        "disclaimer_heading": "DISCLAIMER:",
+        "disclaimer_content": "<ul><li>QuickPro Panels are NOT intended for permanent use.</li><li>SHIPPING MUST BE TO A PLACE OF BUSINESS WITH A DOCK OR A FORKLIFT OR THE CUSTOMER WILL BE CHARGED ANOTHER $200 IF IT IS A RESIDENTIAL ADDRESS</li><li>Do NOT tie animals to panel.</li><li>Foam covers sent with panel to avoid scratching only. Welds are painted only to avoid rust.</li><li>Recommended to 'zig-zag' or use angles instead of straight lines when connecting more than 2 panels</li><li>Recommended to separate animals (horses) from one another if they fight between panel to avoid risks (shown in picture)</li><li>QuickPro Panels, QP Panels, LLC is in NO way responsible for ANY accidents with panels.</li></ul>"
+      },
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "title": "Smart, Space-Saving Design",
+            "text": "<ul><li>Fast setup with no loose pieces</li><li>Locks at 9'9\" and collapses to just 5' with the push of a button</li><li>Compact enough to fit in a truck bed, hay rack, or trailer</li></ul>"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "title": "Versatile & Practical",
+            "text": "<ul><li>Works as stall fronts, pens, or extra fencing at home or on the road</li><li>4' tall with 21\" ground clearance and 11\" rail spacing</li><li>Can stand alone or connect easily with built-in chains</li></ul>"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "title": "Lightweight Yet Durable",
+            "text": "<ul><li>Weighs only 21 lbs per panel</li><li>Made from round galvanized steel for strength and longevity</li><li>Proudly handmade in the USA for over 10 years</li><li>Trusted by top athletes, including 2024 World Champions Kelsie Domer and Kassie Mowrey</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter-final",
+      "settings": {
+        "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
+        "bg_color": "#656565"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials-custom",
+      "blocks": {
+        "review_1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>Giving my horses the best opportunity to rest, recover, and perform their best on the road is why I had to have these Panels. They are game changers.</p>",
+            "author": "Jordan Jo Hollabaugh",
+            "role": "Customer"
+          }
+        },
+        "review_2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>These have been the biggest game changer, I truly can’t even tell you what a difference they make! I love these❤️</p>",
+            "author": "Kaiden Ayres",
+            "role": "Customer"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2"
+      ],
+      "settings": {
+        "heading": "What Our Customers Say"
+      }
+    },
+    "faq": {
+      "type": "faq-custom",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "How easy are QuickPro Panels to set up and store?",
+            "answer": "<p>QuickPro Panels are designed for quick, hassle-free setup with no loose or extra pieces. They lock in place at 9'9\" and collapse to just 5' with the push of a button.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Where can I store QuickPro Panels when traveling?",
+            "answer": "<p>When collapsed, QuickPro Panels fit perfectly in the back of a truck, in a hay rack/pod, or on the side of a trailer.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "What can I use QuickPro Panels for?",
+            "answer": "<p>Each panel can be used as a stall front or combined to create pens, giving you flexibility for horses or livestock at home or on the road.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "What are the size and weight of each panel?",
+            "answer": "<p>QuickPro Panels are 4' tall, with 21 inches of clearance from the ground to the bottom rail. Each panel weighs only 21 lbs.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Where are QuickPro Panels made?",
+            "answer": "<p>They’re handmade in the USA from durable round galvanized steel and have been trusted for over 10 years.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "How much does shipping cost?",
+            "answer": "<p>Shipping rates are based on load size. Small Loads ship for $195, Medium for $275, and Large for $325. See checkout for details.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "settings": {
+        "heading": "Have Questions About Our Products?"
+      }
+    },
+    "video_grid_section": {
+      "type": "video-grid",
+      "settings": {
+        "heading": "See QuickPro Panels in Action",
+        "description": "<p>Experience the durability and ease of use that makes QuickPro the top choice for champions.</p>"
+      },
+      "blocks": {
+        "v1": {
+          "type": "grid_video_block",
+          "settings": {
+            "caption": "Easy Setup"
+          }
+        },
+        "v2": {
+          "type": "grid_video_block",
+          "settings": {
+            "caption": "Durable Design"
+          }
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "about_us",
+    "testimonials",
+    "newsletter",
+    "faq",
+    "video_grid_section"
+  ]
+}

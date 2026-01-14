@@ -1,0 +1,17 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer-custom",
+      "settings": {
+        "bg_color": "#545454",
+        "email": "order@quickpropanels.com",
+        "facebook_url": "https://facebook.com"
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

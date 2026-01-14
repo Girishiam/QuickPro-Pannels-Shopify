@@ -1,0 +1,191 @@
+<div class="video-grid-section">
+  <div class="page-width">
+    <div class="video-grid-header center">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="video-grid-title">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <div class="video-grid-description text-body">{{ section.settings.description }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="video-grid-container">
+      {%- for block in section.blocks -%}
+        <div class="video-grid-item">
+          {%- if block.settings.video_obj != blank -%}
+            {{ block.settings.video_obj | video_tag: image_size: '600x', loop: true, controls: true, muted: false, class: 'video-element' }}
+          {%- elsif block.settings.video_url != blank -%}
+            {%- if block.settings.video_url.type == 'youtube' -%}
+              <iframe src="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?enablejsapi=1" class="video-element" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {%- elsif block.settings.video_url.type == 'vimeo' -%}
+              <iframe src="https://player.vimeo.com/video/{{ block.settings.video_url.id }}" class="video-element" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {%- endif -%}
+          {%- elsif block.settings.cover_image != blank -%}
+             <img src="{{ block.settings.cover_image | image_url: width: 600 }}" alt="{{ block.settings.caption | escape }}" class="video-element" style="object-fit: cover;">
+          {%- else -%}
+             <div class="video-placeholder-box">
+                <span class="placeholder-text">Video Placeholder</span>
+             </div>
+          {%- endif -%}
+          {%- if block.settings.caption != blank -%}
+            <p class="video-item-caption">{{ block.settings.caption | escape }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .video-grid-section {
+    padding: 60px 0;
+    background-color: #ffffff; /* Ensure visibility */
+  }
+  .video-grid-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .video-grid-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1e293b;
+    text-transform: uppercase;
+  }
+  .video-grid-description {
+    font-size: 18px;
+    color: #475569;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .video-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 800px; /* Reduced from 1200px to make videos smaller */
+    margin: 0 auto;
+  }
+
+  .video-grid-item {
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 9 / 16;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-placeholder-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2e8f0;
+    color: #64748b;
+  }
+  
+  .placeholder-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  .video-item-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: #fff;
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .video-grid-container {
+      grid-template-columns: 1fr;
+    }
+    .video-grid-item {
+      max-width: 400px; /* Limit width on mobile so it doesn't get too tall */
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Video Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "See QuickPro in Action",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>Watch our panels in action.</p>",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grid_video_block",
+      "name": "Video Block",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video_obj",
+          "label": "Shopify-hosted Video"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "accept": ["youtube", "vimeo"],
+          "label": "External Video URL",
+          "info": "Use this if you don't have a Shopify-hosted video."
+        },
+        {
+          "type": "image_picker",
+          "id": "cover_image",
+          "label": "Cover Image"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Grid",
+      "blocks": [
+        {
+          "type": "grid_video_block"
+        },
+        {
+          "type": "grid_video_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

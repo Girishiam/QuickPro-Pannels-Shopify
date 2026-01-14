@@ -1,0 +1,347 @@
+<div class="about-us-section page-width scroll-trigger animate--slide-in">
+  <div class="about-grid">
+    <!-- Left Column: Image -->
+    <div class="about-image-wrapper">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 800 | image_tag: 
+           class: 'about-image',
+           widths: '400, 600, 800, 1000',
+           loading: 'lazy'
+        }}
+      {%- else -%}
+        <img src="{{ 'about_us.webp' | asset_url }}" alt="About QuickPro Panels" class="about-image" loading="lazy" width="800" height="auto">
+      {%- endif -%}
+    </div>
+
+    <!-- Right Column: Text Content -->
+    <div class="about-content">
+      <h4 class="about-subheading">{{ section.settings.subheading | escape }}</h4>
+      <h2 class="about-heading">{{ section.settings.heading | escape }}</h2>
+      
+      <div class="about-features">
+        {%- for block in section.blocks -%}
+          <div class="feature-item">
+            <h3 class="feature-title">
+              <span class="bullet-point">•</span> 
+              {{ block.settings.title }}
+            </h3>
+            <div class="feature-description">
+              {{ block.settings.text }}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Quote Section -->
+  <div class="about-quote-container">
+    <div class="about-quote-text">
+      {{ section.settings.quote_text }}
+    </div>
+    <div class="about-quote-author">
+      - {{ section.settings.quote_author }}
+    </div>
+  </div>
+
+  <!-- Merged Disclaimer Section for Guaranteed Visibility -->
+  <div class="disclaimer-wrapper">
+    <div class="disclaimer-box">
+      <h2 class="disclaimer-heading">{{ section.settings.disclaimer_heading | escape }}</h2>
+      <div class="disclaimer-content">
+        {{ section.settings.disclaimer_content }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .about-us-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .about-grid {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+  }
+
+  .about-image-wrapper {
+    flex: 1;
+    position: relative;
+  }
+
+  .about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Slight radius for premium feel */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: block;
+  }
+
+  .about-content {
+    flex: 1.2; /* Give text slightly more space */
+  }
+
+  .about-subheading {
+    font-size: 1.8rem;
+    color: #64748B; /* Slate 500 */
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-weight: 500;
+  }
+
+  .about-heading {
+    font-size: 3.6rem;
+    color: var(--color-foreground);
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+
+  .feature-item {
+    margin-bottom: 25px;
+  }
+
+  .feature-title {
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .bullet-point {
+    color: #2563EB; /* Blue bullet */
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .feature-description ul {
+    margin: 0;
+    padding-left: 28px;
+    list-style-type: disc;
+  }
+
+  .feature-description li {
+    margin-bottom: 8px;
+    color: rgba(var(--color-foreground), 0.8);
+    line-height: 1.6;
+    font-size: 1.6rem;
+  }
+
+  .feature-description li::marker {
+    color: #2563EB; /* Blue nested bullets */
+  }
+
+  /* Quote Section */
+  .about-quote-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .about-quote-text {
+    font-style: italic;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    color: rgba(var(--color-foreground), 0.85);
+    margin-bottom: 20px;
+  }
+  
+  .about-quote-text p {
+    margin: 0; /* Remove default p margins if user adds them */
+  }
+
+  .about-quote-author {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #1E293B; /* Darker slate */
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 900px) {
+    .about-grid {
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .about-heading {
+      font-size: 2.8rem;
+    }
+  }
+
+  /* Disclaimer Styles Merged */
+  .disclaimer-wrapper {
+    margin-top: 60px;
+    padding: 0 20px;
+  }
+  
+  .disclaimer-box {
+    border: 3px solid #000000;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .disclaimer-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .disclaimer-heading {
+    font-size: 2.4rem;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #000000;
+  }
+
+  .disclaimer-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .disclaimer-content p {
+    margin: 0 0 10px 0;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #000000;
+  }
+  
+  .disclaimer-content li {
+    margin-bottom: 12px;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #000000;
+    position: relative;
+    padding-left: 15px;
+  }
+
+  .disclaimer-content li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .disclaimer-box {
+      padding: 20px;
+      border-width: 2px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "About Us Custom",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main Image"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "About Us",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Why QuickPro Panels?",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "quote_text",
+      "label": "Quote Text",
+      "default": "<p>Whether you are on the go to a rodeo, jackpot, trail ride, camping, or even need a temporary fence or stall at home, QuickPro Panels are your solution for quick, easy stalls or fencing. I have been involved in rodeo my entire life, being the footsteps of a fourth generation in my family to do so. I have traveled to rodeos all over and having panels has been a lifesaver at times...</p>"
+    },
+    {
+      "type": "text",
+      "id": "quote_author",
+      "default": "Mandi Jo Fox",
+      "default": "Mandi Jo Fox",
+      "label": "Quote Author"
+    },
+    {
+      "type": "header",
+      "content": "Disclaimer Settings"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer_heading",
+      "default": "DISCLAIMER:",
+      "label": "Disclaimer Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer_content",
+      "label": "Disclaimer Text",
+      "default": "<ul><li>QuickPro Panels are NOT intended for permanent use.</li><li>SHIPPING MUST BE TO A PLACE OF BUSINESS WITH A DOCK OR A FORKLIFT OR THE CUSTOMER WILL BE CHARGED ANOTHER $200 IF IT IS A RESIDENTIAL ADDRESS</li><li>Do NOT tie animals to panel.</li><li>Foam covers sent with panel to avoid scratching only. Welds are painted only to avoid rust.</li><li>Recommended to 'zig-zag' or use angles instead of straight lines when connecting more than 2 panels</li><li>Recommended to separate animals (horses) from one another if they fight between panel to avoid risks (shown in picture)</li><li>QuickPro Panels, QP Panels, LLC is in NO way responsible for ANY accidents with panels.</li></ul>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title",
+          "default": "Smart, Space-Saving Design"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Feature List",
+          "default": "<ul><li>Fast setup with no loose pieces</li></ul>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us Custom",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Smart, Space-Saving Design",
+            "text": "<ul><li>Fast setup with no loose pieces</li><li>Locks at 9'9\" and collapses to just 5' with the push of a button</li><li>Compact enough to fit in a truck bed, hay rack, or trailer</li></ul>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Versatile & Practical",
+            "text": "<ul><li>Works as stall fronts, pens, or extra fencing at home or on the road</li><li>4' tall with 21\" ground clearance and 11\" rail spacing</li><li>Can stand alone or connect easily with built-in chains</li></ul>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Lightweight Yet Durable",
+            "text": "<ul><li>Weighs only 21 lbs per panel</li><li>Made from round galvanized steel for strength and longevity</li><li>Proudly handmade in the USA for over 10 years</li><li>Trusted by top athletes, including 2024 World Champions Kelsie Domer and Kassie Mowrey</li></ul>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
