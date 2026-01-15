@@ -1,0 +1,165 @@
+<div class="gallery-custom-section page-width section-{{ section.id }}-padding">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="gallery-custom-title center">{{ section.settings.heading | escape }}</h2>
+  {%- endif -%}
+
+  <div class="gallery-custom-grid">
+    {%- for block in section.blocks -%}
+      <div class="gallery-custom-item" {{ block.shopify_attributes }}>
+        <div class="gallery-image-wrapper">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 600 | image_tag: 
+              class: 'gallery-custom-image',
+              widths: '300, 600',
+              loading: 'lazy'
+            }}
+          {%- else -%}
+             {% comment %} Fallback to assets/galleryX based on index {% endcomment %}
+             {% assign img_index = forloop.index %}
+             {% assign img_ext = 'webp' %}
+             {% if img_index == 2 %}
+                {% assign img_ext = 'jpeg' %}
+             {% endif %}
+             
+             <img src="{{ 'gallery' | append: img_index | append: '.' | append: img_ext | asset_url }}" 
+                  alt="{{ block.settings.caption }}" 
+                  class="gallery-custom-image"
+                  loading="lazy"
+                  width="600"
+                  height="600">
+          {%- endif -%}
+        </div>
+        {%- if block.settings.caption != blank -%}
+          <p class="gallery-custom-caption center">{{ block.settings.caption | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .gallery-custom-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .gallery-custom-title {
+    font-size: 3.6rem; 
+    font-weight: 800; /* Matching the heavy font form screenshot */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Impact', 'Helvetica Neue', sans-serif; /* Guessing the font style */
+  }
+
+  .gallery-custom-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Columns as per design */
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .gallery-custom-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Widescreen aspect ratio seen in screenshot */
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+  }
+
+  .gallery-custom-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-image-wrapper:hover .gallery-custom-image {
+    transform: scale(1.05); /* Subtle zoom on hover */
+  }
+
+  .gallery-custom-caption {
+    font-weight: 700;
+    font-size: 1.8rem; /* Increased from 1.4rem */
+    margin: 10px 0 0 0;
+    text-align: center;
+    color: #000;
+    line-height: 1.3;
+    min-height: 40px; /* Ensure alignment */
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 990px) {
+    .gallery-custom-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .gallery-custom-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Gallery",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Gallery",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "default": "Caption Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Gallery",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

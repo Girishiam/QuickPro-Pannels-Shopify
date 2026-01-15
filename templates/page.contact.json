@@ -1,25 +1,35 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "hero_contact": {
+      "type": "hero-custom",
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Contact Us",
+        "text": "<p>Get in touch with our team for expert advice and support on all your panel needs.</p>",
+        "image": "shopify://shop_images/contact-hero.jpg",
+        "bg_color": "#1E293B",
+        "text_color": "#FFFFFF",
+        "button_label": "",
+        "button_link": ""
       }
     },
-    "form": {
-      "type": "contact-form",
+    "contact_custom": {
+      "type": "contact-custom",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Need to Talk to Us?",
+        "description": "<p>Questions, comments, or suggestions? Simply fill in the form and we'll be in touch shortly.</p>",
+        "address_label": "P.O. Box 1655",
+        "address_text": "<p>George West, Texas 78022</p>",
+        "phone_label": "Phone",
+        "phone_text": "(361) 362-8085",
+        "email_label": "Email",
+        "email_text": "order@quickpropanels.com",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
   "order": [
-    "main",
-    "form"
+    "hero_contact",
+    "contact_custom"
   ]
 }

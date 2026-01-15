@@ -1,0 +1,212 @@
+<div class="reviews-custom-section page-width section-{{ section.id }}-padding">
+  <h2 class="reviews-heading">Customer Reviews</h2>
+  
+  <div class="reviews-grid">
+    <!-- Left: Ratings Summary -->
+    <div class="rating-summary-card">
+      <div class="average-rating-block">
+        <span class="rating-label">Average Ratings</span>
+        <div class="rating-score">0/5</div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="review-count">0 reviews</div>
+      </div>
+      
+      <div class="rating-breakdown">
+        {% for i in (1..5) reversed %}
+          <div class="breakdown-row">
+            <span class="star-label">{{ i }} ★</span>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 0%"></div>
+            </div>
+            <span class="percentage-label">0%</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Right: Write Review -->
+    <div class="write-review-card">
+      <div class="write-review-content">
+        <div class="icon-circle">
+           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+             <path d="M12 20h9"></path>
+             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+           </svg>
+        </div>
+        <h3>Write a review</h3>
+        <p>Be the first one to review this product</p>
+        <button class="btn-write-review">Write a review</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .reviews-custom-section {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  .reviews-heading {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #121212;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+  }
+
+  /* Cards */
+  .rating-summary-card, .write-review-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 8px; /* Slightly rounded as per image */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .rating-summary-card {
+    align-items: center;
+  }
+
+  /* Left Column Styles */
+  .average-rating-block {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .rating-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .rating-score {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .rating-stars {
+    color: #e5e5e5; /* Gray for empty stars */
+    font-size: 1.8rem;
+    margin: 5px 0;
+  }
+  
+  .review-count {
+    color: #777;
+    font-size: 1.2rem;
+  }
+
+  .rating-breakdown {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .breakdown-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .star-label {
+    min-width: 30px;
+    font-weight: 600;
+  }
+
+  .progress-bar-bg {
+    flex-grow: 1;
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress-bar-fill {
+    height: 100%;
+    background-color: #333;
+  }
+  
+  .percentage-label {
+    min-width: 30px;
+    text-align: right;
+  }
+
+  /* Right Column Styles */
+  .write-review-card {
+    align-items: center;
+    text-align: center;
+    min-height: 300px; /* Match height roughy */
+  }
+
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    background: #e6f0ff; /* Light blueish bg */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: #3b82f6; /* Blue icon */
+  }
+
+  .write-review-content h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+  }
+
+  .write-review-content p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+
+  .btn-write-review {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 10px 25px;
+    border-radius: 20px; /* Pill shape */
+    font-weight: 600;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #333;
+  }
+  
+  .btn-write-review:hover {
+    background: #f9f9f9;
+    border-color: #ccc;
+  }
+
+  @media screen and (max-width: 750px) {
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Reviews",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Custom Reviews"
+    }
+  ]
+}
+{% endschema %}

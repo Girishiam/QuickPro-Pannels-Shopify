@@ -1,0 +1,135 @@
+{
+    "sections": {
+        "hero_instructions": {
+            "type": "hero-custom",
+            "settings": {
+                "heading": "Fast Setup. Easy Storage. Built for Champions.",
+                "text": "<p>Portable Horse Stalls & Pens – Handmade in the USA</p>",
+                "image": "shopify://shop_images/placeholder_hero.jpg",
+                "bg_color": "#1E293B",
+                "text_color": "#FFFFFF",
+                "button_label": "Shop Now",
+                "button_link": "shopify://collections/all"
+            }
+        },
+        "instructions_new": {
+            "type": "instruction-with-image",
+            "settings": {}
+        },
+        "disclaimer_instructions": {
+            "type": "disclaimer-custom",
+            "settings": {
+                "heading": "DISCLAIMER:",
+                "content": "<ul><li>QuickPro Panels are NOT intended for permanent use.</li><li>SHIPPING MUST BE TO A PLACE OF BUSINESS WITH A DOCK OR A FORKLIFT OR THE CUSTOMER WILL BE CHARGED ANOTHER $200 IF IT IS A RESIDENTIAL ADDRESS</li><li>Do NOT tie animals to panel.</li><li>Foam covers sent with panel to avoid scratching only. Welds are painted only to avoid rust.</li><li>Recommended to 'zig-zag' or use angles instead of straight lines when connecting more than 2 panels</li><li>Recommended to separate animals (horses) from one another if they fight between panel to avoid risks (shown in picture)</li><li>QuickPro Panels, QP Panels, LLC is in NO way responsible for ANY accidents with panels.</li></ul>"
+            }
+        },
+        "videos_instructions": {
+            "type": "video-grid",
+            "settings": {
+                "heading": "See QuickPro Panels in Action",
+                "description": "<p>Experience the durability and ease of use that makes QuickPro the top choice for champions.</p>"
+            },
+            "blocks": {
+                "v1": {
+                    "type": "grid_video_block",
+                    "settings": {
+                        "caption": "Easy Setup"
+                    }
+                },
+                "v2": {
+                    "type": "grid_video_block",
+                    "settings": {
+                        "caption": "Durable Design"
+                    }
+                }
+            },
+            "block_order": [
+                "v1",
+                "v2"
+            ]
+        },
+        "shipping": {
+            "type": "shipping-info",
+            "settings": {}
+        },
+        "trailer_attachments": {
+            "type": "trailer-attachments",
+            "settings": {}
+        },
+        "faq_instructions": {
+            "type": "faq-custom",
+            "settings": {
+                "heading": "Have Questions About Our Products?"
+            },
+            "blocks": {
+                "q1": {
+                    "type": "question",
+                    "settings": {
+                        "question": "How easy are QuickPro Panels to set up and store?",
+                        "answer": "<p>QuickPro Panels are designed for speed and convenience. With no loose pieces to worry about, they can be set up in minutes. The unique design allows them to collapse to just 5' with the push of a button for easy storage.</p>"
+                    }
+                },
+                "q2": {
+                    "type": "question",
+                    "settings": {
+                        "question": "Where can I store QuickPro Panels when traveling?",
+                        "answer": "<p>Their compact 5' collapsed size makes them incredibly versatile for travel. They fit easily in a truck bed, hay rack, or standard trailer.</p>"
+                    }
+                },
+                "q3": {
+                    "type": "question",
+                    "settings": {
+                        "question": "What can I use QuickPro Panels for?",
+                        "answer": "<p>They are highly versatile! Use them as stall fronts, temporary pens, or extra fencing whether you are at home, at a rodeo, or camping.</p>"
+                    }
+                },
+                "q4": {
+                    "type": "question",
+                    "settings": {
+                        "question": "What are the size and weight of each panel?",
+                        "answer": "<p>Each panel is 4' tall with a length that extends to 9'9\". They are lightweight yet durable, weighing only 21 lbs per panel.</p>"
+                    }
+                },
+                "q5": {
+                    "type": "question",
+                    "settings": {
+                        "question": "Where are QuickPro Panels made and who uses them?",
+                        "answer": "<p>QuickPro Panels are proudly handmade in the USA. They are trusted by everyday riders and top athletes alike, including World Champions.</p>"
+                    }
+                },
+                "q6": {
+                    "type": "question",
+                    "settings": {
+                        "question": "How much does shipping cost for Quick Pro Panels?",
+                        "answer": "<p>Shipping rates vary by order size: Small Load ($195), Medium Load ($275), and Large Load ($325). We recommend shipping to a business address for the best rates.</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "q1",
+                "q2",
+                "q3",
+                "q4",
+                "q5",
+                "q6"
+            ]
+        },
+        "newsletter": {
+            "type": "newsletter-final",
+            "settings": {
+                "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
+                "bg_color": "#656565"
+            }
+        }
+    },
+    "order": [
+        "hero_instructions",
+        "instructions_new",
+        "disclaimer_instructions",
+        "videos_instructions",
+        "shipping",
+        "trailer_attachments",
+        "newsletter",
+        "faq_instructions"
+    ]
+}

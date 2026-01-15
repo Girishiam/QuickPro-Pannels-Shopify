@@ -1,0 +1,193 @@
+<div class="instruction-section page-width section-{{ section.id }}-padding" id="shopify-section-instructions">
+  <div class="instruction-container">
+    
+    <div class="instruction-image-wrapper">
+      <img src="{{ 'instruction.webp' | asset_url }}" 
+           alt="Instructions for Use" 
+           class="instruction-image"
+           loading="lazy"
+           width="800"
+           height="auto">
+    </div>
+
+    <div class="instruction-content-wrapper">
+      <h2 class="instruction-heading">
+        Instructions for Use
+      </h2>
+
+      <div class="instruction-text">
+        <ul class="instruction-list">
+          <li>
+            <strong>Extend to Full Size</strong>
+            <p>Pull the extension straight out until the snap button locks into place.</p>
+          </li>
+          <li>
+            <strong>Secure Chains</strong>
+            <p>Tighten both top and bottom chains while in use.</p>
+          </li>
+          <li>
+            <strong>Create Stalls</strong>
+            <p>Each panel can be used as a stall front or pen divider.</p>
+            <ul class="instruction-sublist">
+              <li><strong>3 panels</strong> make a nearly 10' x 10' stall.</li>
+              <li><strong>5 panels</strong> make two nearly 10' x 10' stalls off the side of a trailer.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Collapse for Storage</strong>
+            <p>Push the snap button down and slide the extension back in.</p>
+          </li>
+          <li>
+            <strong>Trailer Attachments</strong>
+            <p>Mount attachments to the side of your trailer so chains can connect. (All trailers differ—use best judgment).</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .instruction-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f8fafc; /* Subtle light background */
+  }
+
+  .instruction-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* PERFECT VERTICAL ALIGNMENT */
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .instruction-image-wrapper {
+    flex: 1;
+    position: relative;
+  }
+
+  .instruction-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Premium Shadow */
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .instruction-image:hover {
+    transform: translateY(-5px);
+  }
+
+  .instruction-content-wrapper {
+    flex: 1;
+  }
+
+  .instruction-heading {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .instruction-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #3b82f6; /* Accent color underline */
+    border-radius: 2px;
+  }
+
+  .instruction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .instruction-list > li {
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 20px;
+    border-left: 3px solid #cbd5e1; /* Visual guide line */
+    transition: all 0.2s ease;
+  }
+
+  .instruction-list > li:hover {
+    border-left-color: #3b82f6; /* Highlight on hover */
+    padding-left: 25px;
+  }
+
+  .instruction-list strong {
+    display: block;
+    font-size: 1.8rem;
+    color: #0f172a;
+    margin-bottom: 5px;
+  }
+
+  .instruction-list p {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #475569;
+    line-height: 1.6;
+  }
+
+  .instruction-sublist {
+    margin-top: 10px;
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .instruction-sublist li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 1.5rem;
+    color: #475569;
+    margin-bottom: 5px;
+  }
+
+  .instruction-sublist li::before {
+    content: '•';
+    color: #3b82f6;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Mobile Responsive */
+  @media screen and (max-width: 900px) {
+    .instruction-container {
+      flex-direction: column;
+      gap: 40px;
+    }
+    
+    .instruction-heading {
+      font-size: 2.8rem;
+      text-align: left;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Instruction With Image",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Instruction With Image"
+    }
+  ]
+}
+{% endschema %}

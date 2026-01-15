@@ -1,0 +1,258 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+<div class="shipping-section page-width section-{{ section.id }}-padding" id="shopify-section-shipping">
+  <div class="shipping-container">
+    
+    <div class="shipping-content-wrapper">
+      <h2 class="shipping-heading">
+        Shipping Information
+      </h2>
+
+      <div class="shipping-rates-grid">
+        <div class="rate-card">
+          <div class="rate-header">Small Load</div>
+          <div class="rate-details">1–5 Panels</div>
+          <div class="rate-price">$195</div>
+          <p class="rate-desc">Perfect for smaller add-on orders or trying out QuickPro Panels.</p>
+        </div>
+        <div class="rate-card recommended">
+          <div class="rate-tag">Most Popular</div>
+          <div class="rate-header">Medium Load</div>
+          <div class="rate-details">6–15 Panels</div>
+          <div class="rate-price">$275</div>
+          <p class="rate-desc">Ideal for most standard orders. Discounted rate.</p>
+        </div>
+        <div class="rate-card">
+          <div class="rate-header">Large Load</div>
+          <div class="rate-details">16–30 Panels</div>
+          <div class="rate-price">$325</div>
+          <p class="rate-desc">Best value for larger orders. Covers shipment of up to 30 panels.</p>
+        </div>
+      </div>
+
+      <div class="shipping-note">
+        <p><em>Shipping rates may vary by destination. These flat-rate options apply to most states. We’ll always confirm your final shipping cost before processing your order.</em></p>
+      </div>
+
+      <div class="shipping-details-list">
+        <div class="detail-item">
+          <strong>Best Value:</strong> Ship to a business with a loading dock (e.g., feed store) for the cheapest and fastest delivery.
+        </div>
+        <div class="detail-item">
+          <strong>Residential Delivery:</strong> Additional cost. 18-wheeler access required. Avoid liftgate (+$100).
+        </div>
+        <div class="detail-item">
+          <strong>Weight & Handling:</strong> 5 panels = 115 lbs. Helpers needed. Lift use adds $100.
+        </div>
+        <div class="detail-item">
+          <strong>Local Pick-Up / Meet-Up:</strong> Available in Stephenville, Shreveport, Beaumont, College Station, San Antonio, Houston, Corpus.
+        </div>
+      </div>
+      
+      <div class="shipping-warning">
+         Please take note: SHIPPING MUST BE TO A PLACE OF BUSINESS WITH A DOCK OR A FORKLIFT OR THE CUSTOMER WILL BE CHARGED ANOTHER $200 IF IT IS A RESIDENTIAL ADDRESS
+      </div>
+
+    </div>
+
+    <div class="shipping-image-wrapper">
+      <img src="{{ 'shipping.webp' | asset_url }}" 
+           alt="Shipping Information" 
+           class="shipping-image"
+           loading="lazy"
+           width="800"
+           height="auto">
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .shipping-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #ffffff;
+  }
+
+  .shipping-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Content Side */
+  .shipping-content-wrapper {
+    flex: 1.2; /* Slightly wider for text */
+  }
+
+  .shipping-heading {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .shipping-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #ef4444; /* Red accent for shipping/alert */
+    border-radius: 2px;
+  }
+
+  /* Rates Grid */
+  .shipping-rates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .rate-card {
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s;
+    position: relative;
+  }
+  
+  .rate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+
+  .rate-card.recommended {
+    background: #eff6ff;
+    border-color: #3b82f6;
+  }
+
+  .rate-tag {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3b82f6;
+    color: white;
+    font-size: 1rem;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .rate-header {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #64748b;
+    margin-bottom: 5px;
+  }
+
+  .rate-details {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #0f172a;
+    margin-bottom: 10px;
+  }
+
+  .rate-price {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 10px;
+  }
+
+  .rate-desc {
+    font-size: 1.2rem;
+    color: #64748b;
+    line-height: 1.4;
+  }
+
+  /* Notes & Details */
+  .shipping-note {
+    font-size: 1.4rem;
+    color: #64748b;
+    margin-bottom: 30px;
+    border-left: 3px solid #cbd5e1;
+    padding-left: 15px;
+  }
+
+  .shipping-details-list {
+    margin-bottom: 30px;
+  }
+
+  .detail-item {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #334155;
+    line-height: 1.6;
+  }
+  
+  .detail-item strong {
+    color: #0f172a;
+  }
+
+  .shipping-warning {
+    background: #fef2f2;
+    border: 1px solid #fee2e2;
+    color: #991b1b;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* Image Side */
+  .shipping-image-wrapper {
+    flex: 0.8;
+  }
+
+  .shipping-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 900px) {
+    .shipping-container {
+      flex-direction: column-reverse; /* Image on top mobile? Or bottom? Let's do text first because info is crucial */
+    }
+    
+    .shipping-rates-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .shipping-image-wrapper {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Shipping Info Custom",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Shipping Info Custom"
+    }
+  ]
+}
+{% endschema %}

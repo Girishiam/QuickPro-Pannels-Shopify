@@ -1,0 +1,321 @@
+<div class="product-grid-custom page-width section-{{ section.id }}-padding" style="display: block;">
+  
+  <div class="section-heading-wrapper">
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+  </div>
+
+  {% comment %} Product Grid {% endcomment %}
+  <div class="product-grid-container" id="product-grid-pdp">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign product_ref = block.settings.product_item
+        
+        # Resolve Data Priorities (Product > Custom Input)
+        assign title = product_ref.title | default: block.settings.title
+        assign url = product_ref.url | default: block.settings.url | default: '#'
+        
+        if product_ref != blank
+          assign price = product_ref.price | money_without_trailing_zeros
+          assign image = product_ref.featured_media
+        else
+          assign price = block.settings.price | prepend: '$'
+          assign image = block.settings.image
+        endif
+        
+        # Allow custom image override even if product is selected
+        if block.settings.image != blank
+          assign image = block.settings.image
+        endif
+      -%}
+
+      <a href="{{ url }}" class="product-card" 
+           data-price="{{ price }}" 
+           {{ block.shopify_attributes }}>
+        
+        <div class="product-image-wrapper">
+          {%- if image != blank -%}
+             {{ image | image_url: width: 600 | image_tag: 
+              class: 'product-image',
+              loading: 'lazy'
+            }}
+          {%- else -%}
+             {% comment %} Fallback to assets/productX.webp based on index {% endcomment %}
+             {% assign img_index = forloop.index | modulo: 4 | plus: 1 %}
+             <img src="{{ 'product' | append: img_index | append: '.webp' | asset_url }}" 
+                  alt="{{ title }}" 
+                  class="product-image"
+                  loading="lazy"
+                  width="600"
+                  height="600">
+          {%- endif -%}
+        </div>
+        
+        <div class="product-info">
+          <h3 class="product-title">{{ title | escape }}</h3>
+          <p class="product-price">{{ price }}</p>
+        </div>
+        
+      </a>
+    {%- endfor -%}
+  </div>
+
+  {% comment %} Pagination Controls {% endcomment %}
+  <div class="pagination-controls" id="pagination-controls-pdp">
+    <button id="prev-page-pdp" class="pagination-btn" disabled>&lt; Previous</button>
+    <span id="page-info-pdp">Page 1 of 1</span>
+    <button id="next-page-pdp" class="pagination-btn" disabled>Next &gt;</button>
+  </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const grid = document.getElementById('product-grid-pdp');
+  if(!grid) return;
+  
+  const cards = Array.from(grid.getElementsByClassName('product-card'));
+  
+  // Pagination Elements
+  const prevBtn = document.getElementById('prev-page-pdp');
+  const nextBtn = document.getElementById('next-page-pdp');
+  const pageInfo = document.getElementById('page-info-pdp');
+  const paginationControls = document.getElementById('pagination-controls-pdp');
+
+  const PRODUCTS_PER_PAGE = 3; 
+  let currentPage = 1;
+
+  function renderPage() {
+     const totalPages = Math.ceil(cards.length / PRODUCTS_PER_PAGE) || 1;
+     
+     if (currentPage > totalPages) currentPage = 1;
+
+     const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+     const endIndex = startIndex + PRODUCTS_PER_PAGE;
+     const pageCards = cards.slice(startIndex, endIndex);
+
+     // Hide all first
+     cards.forEach(card => card.style.display = 'none');
+     
+     // Show only current page
+     pageCards.forEach(card => {
+         card.style.display = 'flex';
+     });
+
+     // Update UI
+     if(pageInfo) pageInfo.innerText = `Page ${currentPage} of ${totalPages}`;
+     
+     if(prevBtn) prevBtn.disabled = (currentPage === 1);
+     if(nextBtn) nextBtn.disabled = (currentPage === totalPages);
+     
+     if (paginationControls) {
+        if (cards.length <= PRODUCTS_PER_PAGE) {
+            paginationControls.style.display = 'none';
+        } else {
+            paginationControls.style.display = 'flex';
+        }
+     }
+  }
+
+  // Pagination Events
+  if(prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderPage();
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+  }
+
+  if(nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const totalPages = Math.ceil(cards.length / PRODUCTS_PER_PAGE);
+        if (currentPage < totalPages) {
+          currentPage++; 
+          renderPage();
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+  }
+
+  // Initial Run
+  renderPage();
+
+});
+</script>
+
+<style>
+  .product-grid-custom {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  .section-heading-wrapper {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .section-heading {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  /* Pagination Styles */
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px;
+  }
+
+  .pagination-btn {
+    background: transparent;
+    border: 1px solid #121212;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    color: #121212;
+    min-width: 120px;
+  }
+
+  .pagination-btn:hover:not(:disabled) {
+    background: #121212;
+    color: #fff;
+  }
+
+  .pagination-btn:disabled {
+    border-color: #e5e5e5;
+    color: #999;
+    cursor: not-allowed;
+  }
+
+  #page-info-pdp {
+    font-size: 1.4rem;
+    color: #121212;
+    font-weight: 500;
+    margin: 0 15px;
+    font-family: inherit;
+  }
+
+  /* Product Grid */
+  .product-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    gap: 40px;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .product-image-wrapper {
+    aspect-ratio: 1;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #f4f4f4;
+    position: relative;
+    border-radius: 4px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .product-card:hover .product-image {
+    transform: scale(1.05);
+  }
+
+  .product-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #121212;
+  }
+
+  .product-price {
+    font-size: 1.5rem;
+    color: #555;
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 750px) {
+    .product-grid-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "PDP Product Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You may also like"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pdp_product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product_item",
+          "label": "Choose Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Title (Optional)",
+          "default": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Custom Price (Optional)",
+          "default": "100.00"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Custom Link (Optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Product Grid"
+    }
+  ]
+}
+{% endschema %}

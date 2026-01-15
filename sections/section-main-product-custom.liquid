@@ -1,0 +1,265 @@
+<div class="product-custom-section page-width section-{{ section.id }}-padding">
+  <div class="product-grid">
+    
+    <!-- Product Media -->
+    <div class="product-media-wrapper">
+      {%- if product.selected_or_first_available_variant.featured_media != null -%}
+        {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+      {%- else -%}
+        {%- assign featured_media = product.featured_media -%}
+      {%- endif -%}
+
+      <div class="product-main-image">
+        {%- if featured_media -%}
+          {{ featured_media | image_url: width: 800 | image_tag: loading: 'eager', class: 'main-img' }}
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+      
+      {%- if product.media.size > 1 -%}
+        <div class="product-thumbnails">
+          {%- for media in product.media -%}
+            <div class="thumbnail-item">
+              <img src="{{ media | image_url: width: 150 }}" alt="{{ media.alt | escape }}" class="thumb-img">
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-info-wrapper">
+      <h1 class="product-title">{{ product.title | default: 'Trailer Attachments' }}</h1>
+      
+      <div class="product-price">
+        {{ product.price | money | default: '$15.00' }}
+      </div>
+
+      <div class="product-form-container">
+        {%- form 'product', product -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          
+          <div class="quantity-selector">
+            <label for="Quantity-{{ section.id }}">Quantity</label>
+            <div class="quantity-input-wrapper">
+              <button type="button" class="qty-btn" onclick="this.nextElementSibling.stepDown()">-</button>
+              <input type="number" name="quantity" id="Quantity-{{ section.id }}" value="1" min="1" class="qty-input">
+              <button type="button" class="qty-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+            </div>
+          </div>
+
+          <div class="product-buttons">
+            <button type="submit" name="add" class="btn-add-to-cart">Add to Cart</button>
+            {{ form | payment_button }}
+          </div>
+        {%- endform -%}
+      </div>
+
+      <div class="product-description rte">
+        {% if product.description != blank %}
+          {{ product.description }}
+        {% else %}
+          <p>Sold in sets of three, these heavy-duty connectors allow you to securely attach your panels directly to the side of your trailer—perfect for creating <strong>nearly 10' x 10' stalls</strong> without needing freestanding supports. Built to withstand travel and repeated use, they're a must-have for anyone hauling horses to events.</p>
+        {% endif %}
+      </div>
+      
+      <div class="shipping-info">
+        <p class="shipping-title">**SHIPPING DETAILS:</p>
+        <p>Shipping rates for Quick Pro Panels are based on load size. Small Loads (1-3 panels, 1-37 kg) ship for $195, Medium Loads (4-6 panels, 38-58 kg) ship for $275, and Large Loads (7-10 panels, 59-99 kg) ship for $325.</p>
+        <a href="#" class="show-more-link">Show More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .product-custom-section {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  /* Media */
+  .product-media-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .product-main-image {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #f4f4f4;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-thumbnails {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .thumb-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+
+  /* Info */
+  .product-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #121212;
+  }
+
+  .product-price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #121212;
+  }
+
+  .quantity-selector {
+    margin-bottom: 20px;
+  }
+  
+  .quantity-selector label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    color: #555;
+  }
+
+  .quantity-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    width: fit-content;
+    border-radius: 4px;
+  }
+
+  .qty-btn {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+  .qty-input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    font-size: 1.2rem;
+    -moz-appearance: textfield;
+  }
+  .qty-input::-webkit-outer-spin-button,
+  .qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .product-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    max-width: 400px;
+  }
+
+  .btn-add-to-cart {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: background 0.2s;
+  }
+  
+  .btn-add-to-cart:hover {
+    background-color: #333;
+  }
+
+  /* Shopify Dynamic Button Override to match design */
+  .shopify-payment-button__button--unbranded {
+    background-color: white !important;
+    color: #d32f2f !important; /* Reddish text */
+    border: 1px solid #d32f2f !important;
+    font-weight: 600 !important;
+    box-shadow: none !important;
+  }
+  
+  .shopify-payment-button__button--unbranded:hover {
+    background-color: #f9f9f9 !important;
+  }
+
+  .product-description {
+    font-size: 1.4rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .shipping-info {
+    font-size: 1.2rem;
+    color: #333;
+    background: #fff;
+  }
+  
+  .shipping-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  
+  .show-more-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .product-buttons {
+      max-width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Product Main",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Custom Product Main"
+    }
+  ]
+}
+{% endschema %}

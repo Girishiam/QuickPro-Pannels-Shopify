@@ -1,216 +1,148 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
+      "type": "section-main-product-custom",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "product-reviews-custom",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter-final",
+      "settings": {
+        "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
+        "bg_color": "#656565"
+      }
+    },
+    "faq": {
+      "type": "faq-custom",
       "blocks": {
-        "vendor": {
-          "type": "text",
+        "q1": {
+          "type": "question",
           "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
+            "question": "How easy are QuickPro Panels to set up and store?",
+            "answer": "<p>QuickPro Panels are designed for quick, hassle-free setup with no loose or extra pieces. They lock in place at 9'9\" and collapse to just 5' with the push of a button.</p>"
           }
         },
-        "title": {
-          "type": "title"
-        },
-        "caption": {
-          "type": "text",
+        "q2": {
+          "type": "question",
           "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
-            "text_style": "subtitle"
+            "question": "Where can I store QuickPro Panels when traveling?",
+            "answer": "<p>When collapsed, QuickPro Panels fit perfectly in the back of a truck, in a hay rack/pod, or on the side of a trailer.</p>"
           }
         },
-        "price": {
-          "type": "price"
-        },
-        "variant_picker": {
-          "type": "variant_picker",
+        "q3": {
+          "type": "question",
           "settings": {
-            "picker_type": "button"
+            "question": "What can I use QuickPro Panels for?",
+            "answer": "<p>Each panel can be used as a stall front or combined to create pens, giving you flexibility for horses or livestock at home or on the road.</p>"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector"
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
+        "q4": {
+          "type": "question",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "question": "What are the size and weight of each panel?",
+            "answer": "<p>QuickPro Panels are 4' tall, with 21 inches of clearance from the ground to the bottom rail. Each panel weighs only 21 lbs.</p>"
           }
         },
-        "description": {
-          "type": "description"
-        },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
+        "q5": {
+          "type": "question",
           "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
+            "question": "Where are QuickPro Panels made?",
+            "answer": "<p>They’re handmade in the USA from durable round galvanized steel and have been trusted for over 10 years.</p>"
           }
         },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
+        "q6": {
+          "type": "question",
           "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
+            "question": "How much does shipping cost?",
+            "answer": "<p>Shipping rates are based on load size. Small Loads ship for $195, Medium for $275, and Large for $325. See checkout for details.</p>"
           }
         }
       },
       "block_order": [
-        "vendor",
-        "title",
-        "caption",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
       ],
       "settings": {
-        "enable_sticky_info": true,
-        "gallery_layout": "stacked",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "heading": "Have Questions About Our Products?"
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
+    "custom_pdp_grid": {
+      "type": "product-grid-pdp",
+      "settings": {
+        "heading": "You may also like"
+      },
       "blocks": {
-        "image-with-text-0": {
-          "type": "heading",
+        "p1": {
+          "type": "pdp_product",
           "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
+            "title": "Set of 3 Panels",
+            "price": "399.00",
+            "url": "/collections/all"
           }
         },
-        "image-with-text-1": {
-          "type": "text",
+        "p2": {
+          "type": "pdp_product",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_style": "body"
+            "title": "Single Panel",
+            "price": "145.00",
+            "url": "/collections/all"
+          }
+        },
+        "p3": {
+          "type": "pdp_product",
+          "settings": {
+            "title": "Trailer Connector",
+            "price": "45.00",
+            "url": "/collections/all"
+          }
+        },
+        "p4": {
+          "type": "pdp_product",
+          "settings": {
+            "title": "Complete Stall Kit",
+            "price": "850.00",
+            "url": "/collections/all"
+          }
+        },
+        "p5": {
+          "type": "pdp_product",
+          "settings": {
+            "title": "Travel Set",
+            "price": "550.00",
+            "url": "/collections/all"
+          }
+        },
+        "p6": {
+          "type": "pdp_product",
+          "settings": {
+            "title": "Extra Connectors",
+            "price": "25.00",
+            "url": "/collections/all"
           }
         }
       },
       "block_order": [
-        "image-with-text-0",
-        "image-with-text-1"
-      ],
-      "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "scheme-2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column-0": {
-          "type": "column",
-          "settings": {
-            "title": "Free Shipping",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column-1": {
-          "type": "column",
-          "settings": {
-            "title": "Hassle-Free Exchanges",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column-0",
-        "column-1"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "related-products": {
-      "type": "related-products",
-      "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
-      }
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ]
     }
   },
   "order": [
     "main",
-    "image-with-text",
-    "multicolumn",
-    "related-products"
+    "reviews",
+    "newsletter",
+    "faq",
+    "custom_pdp_grid"
   ]
 }

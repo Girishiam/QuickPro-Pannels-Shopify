@@ -1,0 +1,96 @@
+<div class="trailer-attachments-section page-width section-{{ section.id }}-padding">
+  <div class="trailer-attachments-container">
+    <h3 class="trailer-heading">Trailer Attachments</h3>
+    <ul class="trailer-list">
+      <li><strong>Call our cell:</strong> Be sure to text pictures if you contact us for mounting advice.</li>
+      <li><strong>Questions?</strong> I can help brainstorm the best locations to mount them to your trailer.</li>
+      <li><strong>Custom Fit:</strong> Every trailer is different, so we recommend contacting us to ensure the best setup.</li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .trailer-attachments-section {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    background-color: #ffffff;
+  }
+
+  .trailer-attachments-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 2px solid #000000; /* Distinct border as per image */
+    padding: 40px;
+    border-radius: 4px; /* Slight radius for polish, though image is sharp */
+    background: #fff;
+  }
+
+  .trailer-heading {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .trailer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .trailer-list li {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .trailer-list li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: #333;
+    font-weight: bold;
+  }
+
+  .trailer-list strong {
+    font-weight: 800;
+    color: #000;
+  }
+  
+  .trailer-list a {
+    color: #000;
+    text-decoration: underline;
+    transition: color 0.2s;
+  }
+  
+  .trailer-list a:hover {
+    color: #555;
+  }
+
+  @media screen and (max-width: 750px) {
+    .trailer-attachments-container {
+      padding: 20px;
+    }
+    .trailer-heading {
+      font-size: 1.8rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Trailer Attachments",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Trailer Attachments"
+    }
+  ]
+}
+{% endschema %}

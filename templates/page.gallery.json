@@ -1,0 +1,149 @@
+{
+    "sections": {
+        "hero_gallery": {
+            "type": "hero-custom",
+            "settings": {
+                "heading": "Fast Setup. Easy Storage. Built for Champions.",
+                "text": "<p>Portable Horse Stalls & Pens – Handmade in the USA</p>",
+                "image": "shopify://shop_images/placeholder_hero.jpg",
+                "bg_color": "#1E293B",
+                "text_color": "#FFFFFF",
+                "button_label": "Shop Now",
+                "button_link": "shopify://collections/all"
+            }
+        },
+        "gallery_slider": {
+            "type": "gallery-slider",
+            "settings": {
+                "layout": "grid",
+                "slide_height": "medium",
+                "slider_visual": "dots",
+                "auto_rotate": true,
+                "show_text_below": false
+            },
+            "blocks": {
+                "slide1": {
+                    "type": "slide",
+                    "settings": {
+                        "asset_name": "gallery1.webp",
+                        "heading": "",
+                        "subheading": "",
+                        "button_label": "",
+                        "box_align": "bottom-center",
+                        "show_text_box": false
+                    }
+                },
+                "slide2": {
+                    "type": "slide",
+                    "settings": {
+                        "asset_name": "gallery2.jpeg",
+                        "heading": "",
+                        "subheading": "",
+                        "button_label": "",
+                        "box_align": "bottom-center",
+                        "show_text_box": false
+                    }
+                },
+                "slide3": {
+                    "type": "slide",
+                    "settings": {
+                        "asset_name": "gallery3.webp",
+                        "heading": "",
+                        "subheading": "",
+                        "button_label": "",
+                        "box_align": "bottom-center",
+                        "show_text_box": false
+                    }
+                },
+                "slide4": {
+                    "type": "slide",
+                    "settings": {
+                        "asset_name": "gallery4.webp",
+                        "heading": "",
+                        "subheading": "",
+                        "button_label": "",
+                        "box_align": "bottom-center",
+                        "show_text_box": false
+                    }
+                }
+            },
+            "block_order": [
+                "slide1",
+                "slide2",
+                "slide3",
+                "slide4"
+            ]
+        },
+        "newsletter": {
+            "type": "newsletter-final",
+            "settings": {
+                "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
+                "bg_color": "#656565"
+            }
+        },
+        "faq_gallery": {
+            "type": "faq-custom",
+            "settings": {
+                "heading": "Have Questions About Our Products?"
+            },
+            "blocks": {
+                "q1": {
+                    "type": "question",
+                    "settings": {
+                        "question": "How easy are QuickPro Panels to set up and store?",
+                        "answer": "<p>QuickPro Panels are designed for speed and convenience. With no loose pieces to worry about, they can be set up in minutes. The unique design allows them to collapse to just 5' with the push of a button for easy storage.</p>"
+                    }
+                },
+                "q2": {
+                    "type": "question",
+                    "settings": {
+                        "question": "Where can I store QuickPro Panels when traveling?",
+                        "answer": "<p>Their compact 5' collapsed size makes them incredibly versatile for travel. They fit easily in a truck bed, hay rack, or standard trailer.</p>"
+                    }
+                },
+                "q3": {
+                    "type": "question",
+                    "settings": {
+                        "question": "What can I use QuickPro Panels for?",
+                        "answer": "<p>They are highly versatile! Use them as stall fronts, temporary pens, or extra fencing whether you are at home, at a rodeo, or camping.</p>"
+                    }
+                },
+                "q4": {
+                    "type": "question",
+                    "settings": {
+                        "question": "What are the size and weight of each panel?",
+                        "answer": "<p>Each panel is 4' tall with a length that extends to 9'9\". They are lightweight yet durable, weighing only 21 lbs per panel.</p>"
+                    }
+                },
+                "q5": {
+                    "type": "question",
+                    "settings": {
+                        "question": "Where are QuickPro Panels made and who uses them?",
+                        "answer": "<p>QuickPro Panels are proudly handmade in the USA. They are trusted by everyday riders and top athletes alike, including World Champions.</p>"
+                    }
+                },
+                "q6": {
+                    "type": "question",
+                    "settings": {
+                        "question": "How much does shipping cost for Quick Pro Panels?",
+                        "answer": "<p>Shipping rates vary by order size: Small Load ($195), Medium Load ($275), and Large Load ($325). We recommend shipping to a business address for the best rates.</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "q1",
+                "q2",
+                "q3",
+                "q4",
+                "q5",
+                "q6"
+            ]
+        }
+    },
+    "order": [
+        "hero_gallery",
+        "gallery_slider",
+        "newsletter",
+        "faq_gallery"
+    ]
+}
