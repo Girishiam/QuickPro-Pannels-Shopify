@@ -1,19 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero-custom",
       "settings": {
         "heading": "Fast Setup. Easy Storage. Built for Champions.",
-        "image": "shopify:\/\/shop_images\/hero.jpg"
+        "overlay_opacity": 60
       }
     },
     "custom_product_grid": {
       "type": "product-grid-custom",
-      "settings": {},
       "blocks": {
         "product_1": {
           "type": "product",
           "settings": {
+            "product_item": "",
             "title": "Set of 3 | QuickPro Panels",
             "price": "570.00",
             "in_stock": true,
@@ -23,6 +32,7 @@
         "product_2": {
           "type": "product",
           "settings": {
+            "product_item": "set-of-5-quickpro-panels",
             "title": "Set of 5 | QuickPro Panels",
             "price": "950.00",
             "in_stock": true,
@@ -32,6 +42,7 @@
         "product_3": {
           "type": "product",
           "settings": {
+            "product_item": "single-panel",
             "title": "Single Panel",
             "price": "195.00",
             "in_stock": true,
@@ -41,6 +52,7 @@
         "product_4": {
           "type": "product",
           "settings": {
+            "product_item": "trailer-attachments",
             "title": "Trailer Attachments",
             "price": "15.00",
             "in_stock": true,
@@ -50,6 +62,7 @@
         "product_5": {
           "type": "product",
           "settings": {
+            "product_item": "",
             "title": "Ride-Thru Gate",
             "price": "275.00",
             "in_stock": true,
@@ -59,6 +72,7 @@
         "product_6": {
           "type": "product",
           "settings": {
+            "product_item": "",
             "title": "Walk-Thru Gate",
             "price": "250.00",
             "in_stock": false,
@@ -73,13 +87,11 @@
         "product_4",
         "product_5",
         "product_6"
-      ]
+      ],
+      "settings": {}
     },
     "gallery": {
       "type": "gallery-custom",
-      "settings": {
-        "heading": "Gallery"
-      },
       "blocks": {
         "img1": {
           "type": "image",
@@ -111,12 +123,17 @@
         "img2",
         "img3",
         "img4"
-      ]
+      ],
+      "settings": {
+        "heading": "Gallery"
+      }
     },
     "newsletter": {
       "type": "newsletter-final",
       "settings": {
         "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
+        "button_label": "Submit",
+        "consent_text": "By checking this box, I consent to receive marketing and promotional messages, including special offers, discounts, new product updates among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out.",
         "bg_color": "#656565"
       }
     },
