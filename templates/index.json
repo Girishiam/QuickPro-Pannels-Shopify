@@ -1,27 +1,23 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero-custom",
       "settings": {
         "heading": "Fast Setup. Easy Storage. Built for Champions.",
-        "text": "<p>Portable Horse Stalls & Pens – Handmade in the USA</p>",
-        "image": "shopify://shop_images/placeholder_hero.jpg",
-        "bg_color": "#1E293B",
-        "text_color": "#FFFFFF",
-        "button_label": "Shop Now",
-        "button_link": "shopify://collections/all"
+        "overlay_opacity": 60
       }
     },
     "about_us": {
       "type": "about-us-custom",
-      "settings": {
-        "subheading": "About Us",
-        "heading": "Why QuickPro Panels?",
-        "quote_text": "<p>Whether you are on the go to a rodeo, jackpot, trail ride, camping, or even need a temporary fence or stall at home, QuickPro Panels are your solution for quick, easy stalls or fencing. I have been involved in rodeo my entire life, being the footsteps of a fourth generation in my family to do so. I have traveled to rodeos all over and having panels has been a lifesaver at times when there are no stalls, they are very small or not safe, or to lessen the risk of contracting illnesses while being in barns with other horses. I am extremely picky where I keep my horses and have one that has escaped from my old panels, but has been unable to escape out of QuickPro Panels. I invented these for quick, functioning convenience & have a patent pending. QuickPro Panels take less panels to provide more stall area.</p>",
-        "quote_author": "Mandi Jo Fox",
-        "disclaimer_heading": "DISCLAIMER:",
-        "disclaimer_content": "<ul><li>QuickPro Panels are NOT intended for permanent use.</li><li>SHIPPING MUST BE TO A PLACE OF BUSINESS WITH A DOCK OR A FORKLIFT OR THE CUSTOMER WILL BE CHARGED ANOTHER $200 IF IT IS A RESIDENTIAL ADDRESS</li><li>Do NOT tie animals to panel.</li><li>Foam covers sent with panel to avoid scratching only. Welds are painted only to avoid rust.</li><li>Recommended to 'zig-zag' or use angles instead of straight lines when connecting more than 2 panels</li><li>Recommended to separate animals (horses) from one another if they fight between panel to avoid risks (shown in picture)</li><li>QuickPro Panels, QP Panels, LLC is in NO way responsible for ANY accidents with panels.</li></ul>"
-      },
       "blocks": {
         "feature_1": {
           "type": "feature",
@@ -49,7 +45,15 @@
         "feature_1",
         "feature_2",
         "feature_3"
-      ]
+      ],
+      "settings": {
+        "subheading": "About Us",
+        "heading": "Why QuickPro Panels?",
+        "quote_text": "<p>Whether you are on the go to a rodeo, jackpot, trail ride, camping, or even need a temporary fence or stall at home, QuickPro Panels are your solution for quick, easy stalls or fencing. I have been involved in rodeo my entire life, being the footsteps of a fourth generation in my family to do so. I have traveled to rodeos all over and having panels has been a lifesaver at times when there are no stalls, they are very small or not safe, or to lessen the risk of contracting illnesses while being in barns with other horses. I am extremely picky where I keep my horses and have one that has escaped from my old panels, but has been unable to escape out of QuickPro Panels. I invented these for quick, functioning convenience & have a patent pending. QuickPro Panels take less panels to provide more stall area.</p>",
+        "quote_author": "Mandi Jo Fox",
+        "disclaimer_heading": "DISCLAIMER:",
+        "disclaimer_content": "<ul><li>QuickPro Panels are NOT intended for permanent use.</li><li>SHIPPING MUST BE TO A PLACE OF BUSINESS WITH A DOCK OR A FORKLIFT OR THE CUSTOMER WILL BE CHARGED ANOTHER $200 IF IT IS A RESIDENTIAL ADDRESS</li><li>Do NOT tie animals to panel.</li><li>Foam covers sent with panel to avoid scratching only. Welds are painted only to avoid rust.</li><li>Recommended to 'zig-zag' or use angles instead of straight lines when connecting more than 2 panels</li><li>Recommended to separate animals (horses) from one another if they fight between panel to avoid risks (shown in picture)</li><li>QuickPro Panels, QP Panels, LLC is in NO way responsible for ANY accidents with panels.</li></ul>"
+      }
     },
     "testimonials": {
       "type": "testimonials-custom",
@@ -79,11 +83,17 @@
         "heading": "What Our Customers Say"
       }
     },
+    "newsletter": {
+      "type": "newsletter-final",
+      "settings": {
+        "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
+        "button_label": "Submit",
+        "consent_text": "By checking this box, I consent to receive marketing and promotional messages, including special offers, discounts, new product updates among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out.",
+        "bg_color": "#656565"
+      }
+    },
     "faq_homepage": {
       "type": "faq-custom",
-      "settings": {
-        "heading": "Have Questions About Our Products?"
-      },
       "blocks": {
         "q1": {
           "type": "question",
@@ -135,24 +145,27 @@
         "q4",
         "q5",
         "q6"
-      ]
+      ],
+      "settings": {
+        "heading": "Have Questions About Our Products?"
+      }
     },
     "video_grid_section": {
       "type": "video-grid",
-      "settings": {
-        "heading": "See QuickPro Panels in Action",
-        "description": "<p>Experience the durability and ease of use that makes QuickPro the top choice for champions.</p>"
-      },
       "blocks": {
         "v1": {
           "type": "grid_video_block",
           "settings": {
+            "video_obj": "shopify://files/videos/20240406_152216.mp4",
+            "video_url": "",
             "caption": "Easy Setup"
           }
         },
         "v2": {
           "type": "grid_video_block",
           "settings": {
+            "video_obj": "shopify://files/videos/20241116_181027.mp4",
+            "video_url": "",
             "caption": "Durable Design"
           }
         }
@@ -160,13 +173,10 @@
       "block_order": [
         "v1",
         "v2"
-      ]
-    },
-    "newsletter": {
-      "type": "newsletter-final",
+      ],
       "settings": {
-        "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
-        "bg_color": "#656565"
+        "heading": "See QuickPro Panels in Action",
+        "description": "<p>Experience the durability and ease of use that makes QuickPro the top choice for champions.</p>"
       }
     }
   },
