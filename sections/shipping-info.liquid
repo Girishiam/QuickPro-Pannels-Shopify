@@ -9,25 +9,17 @@
       </h2>
 
       <div class="shipping-rates-grid">
-        <div class="rate-card">
-          <div class="rate-header">Small Load</div>
-          <div class="rate-details">1–5 Panels</div>
-          <div class="rate-price">$195</div>
-          <p class="rate-desc">Perfect for smaller add-on orders or trying out QuickPro Panels.</p>
-        </div>
-        <div class="rate-card recommended">
-          <div class="rate-tag">Most Popular</div>
-          <div class="rate-header">Medium Load</div>
-          <div class="rate-details">6–15 Panels</div>
-          <div class="rate-price">$275</div>
-          <p class="rate-desc">Ideal for most standard orders. Discounted rate.</p>
-        </div>
-        <div class="rate-card">
-          <div class="rate-header">Large Load</div>
-          <div class="rate-details">16–30 Panels</div>
-          <div class="rate-price">$325</div>
-          <p class="rate-desc">Best value for larger orders. Covers shipment of up to 30 panels.</p>
-        </div>
+        {%- for block in section.blocks -%}
+          <div class="rate-card {% if block.settings.is_recommended %}recommended{% endif %}" {{ block.shopify_attributes }}>
+            {%- if block.settings.tag != blank -%}
+              <div class="rate-tag">{{ block.settings.tag }}</div>
+            {%- endif -%}
+            <div class="rate-header">{{ block.settings.title }}</div>
+            <div class="rate-details">{{ block.settings.details }}</div>
+            <div class="rate-price">{{ block.settings.price }}</div>
+            <p class="rate-desc">{{ block.settings.description }}</p>
+          </div>
+        {%- endfor -%}
       </div>
 
       <div class="shipping-note">
@@ -50,7 +42,7 @@
       </div>
       
       <div class="shipping-warning">
-         Please take note: SHIPPING MUST BE TO A PLACE OF BUSINESS WITH A DOCK OR A FORKLIFT OR THE CUSTOMER WILL BE CHARGED ANOTHER $200 IF IT IS A RESIDENTIAL ADDRESS
+         {{ section.settings.shipping_warning | default: "Please take note: SHIPPING MUST BE TO A PLACE OF BUSINESS WITH A DOCK OR A FORKLIFT OR THE CUSTOMER WILL BE CHARGED ANOTHER $200 IF IT IS A RESIDENTIAL ADDRESS" }}
       </div>
 
     </div>
@@ -248,10 +240,93 @@
 {
   "name": "Shipping Info Custom",
   "class": "section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "shipping_warning",
+      "label": "Warning Text",
+      "default": "Please take note: SHIPPING MUST BE TO A PLACE OF BUSINESS WITH A DOCK OR A FORKLIFT OR THE CUSTOMER WILL BE CHARGED ANOTHER $200 IF IT IS A RESIDENTIAL ADDRESS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rate",
+      "name": "Shipping Rate",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Load Size"
+        },
+        {
+          "type": "text",
+          "id": "details",
+          "label": "Details (e.g. Panel Count)",
+          "default": "1-5 Panels"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$195"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Description of this rate."
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag (Optional)",
+          "default": "Most Popular",
+          "info": "Leave blank to hide."
+        },
+        {
+          "type": "checkbox",
+          "id": "is_recommended",
+          "label": "Highlight Card",
+          "default": false
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Shipping Info Custom"
+      "name": "Shipping Info Custom",
+      "blocks": [
+        {
+          "type": "rate",
+          "settings": {
+            "title": "Small Load",
+            "details": "1–5 Panels",
+            "price": "$195",
+            "description": "Perfect for smaller add-on orders or trying out QuickPro Panels."
+          }
+        },
+        {
+          "type": "rate",
+          "settings": {
+            "title": "Medium Load",
+            "details": "6–15 Panels",
+            "price": "$275",
+            "description": "Ideal for most standard orders. Discounted rate.",
+            "tag": "Most Popular",
+            "is_recommended": true
+          }
+        },
+        {
+          "type": "rate",
+          "settings": {
+            "title": "Large Load",
+            "details": "16–30 Panels",
+            "price": "$325",
+            "description": "Best value for larger orders. Covers shipment of up to 30 panels."
+          }
+        }
+      ]
     }
   ]
 }

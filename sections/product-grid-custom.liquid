@@ -37,68 +37,116 @@
 
   {% comment %} Product Grid {% endcomment %}
   <div class="product-grid-container" id="product-grid">
-    {%- for block in section.blocks -%}
+    {%- if section.blocks.size > 0 -%}
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign product_ref = block.settings.product_item
+          
+          # Resolve Data Priorities
+          assign title = product_ref.title | default: block.settings.title
+          assign url = product_ref.url | default: block.settings.url | default: '#'
+          
+          if product_ref != blank
+            assign price = product_ref.price | money_without_trailing_zeros
+            assign image = product_ref.featured_media
+            if product_ref.available
+               assign in_stock = 'true'
+            else
+               assign in_stock = 'false'
+            endif
+          else
+            assign price = block.settings.price | prepend: '$'
+            assign image = block.settings.image
+            if block.settings.in_stock
+               assign in_stock = 'true'
+            else
+               assign in_stock = 'false'
+            endif
+          endif
+          
+          # Allow custom image override
+          if block.settings.image != blank
+            assign image = block.settings.image
+          endif
+        -%}
+  
+        <a href="{{ url }}" class="product-card" 
+             data-price="{{ price | remove: '$' }}" 
+             data-stock="{{ in_stock }}"
+             {{ block.shopify_attributes }}>
+          
+          <div class="product-image-wrapper">
+            {%- if image != blank -%}
+               {{ image | image_url: width: 600 | image_tag: 
+                class: 'product-image',
+                loading: 'lazy'
+              }}
+            {%- else -%}
+               {% comment %} Fallback to assets/productX.webp based on index {% endcomment %}
+               {% assign img_index = forloop.index %}
+               <img src="{{ 'product' | append: img_index | append: '.webp' | asset_url }}" 
+                    alt="{{ title }}" 
+                    class="product-image"
+                    loading="lazy"
+                    width="600"
+                    height="600">
+            {%- endif -%}
+          </div>
+          
+          <div class="product-info">
+            <h3 class="product-title">{{ title | escape }}</h3>
+            <p class="product-price">{{ price }}</p>
+          </div>
+          
+        </a>
+      {%- endfor -%}
+    {%- else -%}
+    {%- else -%}
+      {% comment %} Dynamic Collection Products {% endcomment %}
       {%- liquid
-        assign product_ref = block.settings.product_item
-        
-        # Resolve Data Priorities
-        assign title = product_ref.title | default: block.settings.title
-        assign url = product_ref.url | default: block.settings.url | default: '#'
-        
-        if product_ref != blank
-          assign price = product_ref.price | money_without_trailing_zeros
-          assign image = product_ref.featured_media
-          if product_ref.available
-             assign in_stock = 'true'
-          else
-             assign in_stock = 'false'
-          endif
-        else
-          assign price = block.settings.price | prepend: '$'
-          assign image = block.settings.image
-          if block.settings.in_stock
-             assign in_stock = 'true'
-          else
-             assign in_stock = 'false'
-          endif
-        endif
-        
-        # Allow custom image override
-        if block.settings.image != blank
-          assign image = block.settings.image
-        endif
+         assign target_collection = collection
+         if section.settings.collection != blank
+            assign target_collection = section.settings.collection
+         endif
       -%}
 
-      <a href="{{ url }}" class="product-card" 
-           data-price="{{ price | remove: '$' }}" 
-           data-stock="{{ in_stock }}"
-           {{ block.shopify_attributes }}>
-        
-        <div class="product-image-wrapper">
-          {%- if image != blank -%}
-             {{ image | image_url: width: 600 | image_tag: 
-              class: 'product-image',
-              loading: 'lazy'
-            }}
-          {%- else -%}
-             {% comment %} Fallback to assets/productX.webp based on index {% endcomment %}
-             {% assign img_index = forloop.index %}
-             <img src="{{ 'product' | append: img_index | append: '.webp' | asset_url }}" 
-                  alt="{{ title }}" 
-                  class="product-image"
-                  loading="lazy"
-                  width="600"
-                  height="600">
-          {%- endif -%}
-        </div>
-        
-        <div class="product-info">
-          <h3 class="product-title">{{ title | escape }}</h3>
-          <p class="product-price">{{ price }}</p>
-        </div>
-        
-      </a>
-    {%- endfor -%}
+      {%- for product in target_collection.products -%}
+        {%- liquid
+          assign title = product.title
+          assign url = product.url
+          assign price = product.price | money_without_trailing_zeros
+          assign image = product.featured_media
+          if product.available
+             assign in_stock = 'true'
+          else
+             assign in_stock = 'false'
+          endif
+        -%}
+  
+        <a href="{{ url }}" class="product-card" 
+             data-price="{{ price | remove: '$' }}" 
+             data-stock="{{ in_stock }}">
+          
+          <div class="product-image-wrapper">
+            {%- if image != blank -%}
+               {{ image | image_url: width: 600 | image_tag: 
+                class: 'product-image',
+                loading: 'lazy'
+              }}
+            {%- else -%}
+              <!-- No Image Fallback -->
+               <div class="product-image" style="background-color: #eee;"></div>
+            {%- endif -%}
+          </div>
+          
+          <div class="product-info">
+            <h3 class="product-title">{{ title | escape }}</h3>
+            <p class="product-price">{{ price }}</p>
+          </div>
+          
+        </a>
+      {%- endfor -%}
+    {%- endif -%}
   </div>
 
   {% comment %} Pagination Controls {% endcomment %}
@@ -523,6 +571,14 @@ document.addEventListener('DOMContentLoaded', function() {
   "name": "Custom Product Grid",
   "tag": "section",
   "class": "section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection (Fallback)",
+      "info": "This collection will be shown if no blocks are added. Required for Homepage."
+    }
+  ],
   "blocks": [
     {
       "type": "product",

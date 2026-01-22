@@ -10,70 +10,8 @@
     "custom_product_grid": {
       "type": "product-grid-custom",
       "settings": {},
-      "blocks": {
-        "product_1": {
-          "type": "product",
-          "settings": {
-            "title": "Set of 3 | QuickPro Panels",
-            "price": "570.00",
-            "in_stock": true,
-            "url": "#"
-          }
-        },
-        "product_2": {
-          "type": "product",
-          "settings": {
-            "title": "Set of 5 | QuickPro Panels",
-            "price": "950.00",
-            "in_stock": true,
-            "url": "#"
-          }
-        },
-        "product_3": {
-          "type": "product",
-          "settings": {
-            "title": "Single Panel",
-            "price": "195.00",
-            "in_stock": true,
-            "url": "#"
-          }
-        },
-        "product_4": {
-          "type": "product",
-          "settings": {
-            "title": "Trailer Attachments",
-            "price": "15.00",
-            "in_stock": true,
-            "url": "/products/trailer-attachments"
-          }
-        },
-        "product_5": {
-          "type": "product",
-          "settings": {
-            "title": "Ride-Thru Gate",
-            "price": "275.00",
-            "in_stock": true,
-            "url": "/products/ride-thru-gate"
-          }
-        },
-        "product_6": {
-          "type": "product",
-          "settings": {
-            "title": "Walk-Thru Gate",
-            "price": "250.00",
-            "in_stock": false,
-            "url": "/products/walk-thru-gate"
-          }
-        }
-      },
-      "block_order": [
-        "product_1",
-        "product_2",
-        "product_3",
-        "product_4",
-        "product_5",
-        "product_6"
-      ]
+      "blocks": {},
+      "block_order": []
     },
     "gallery": {
       "type": "gallery-custom",

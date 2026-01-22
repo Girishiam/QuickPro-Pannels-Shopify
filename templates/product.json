@@ -78,64 +78,8 @@
       "settings": {
         "heading": "You may also like"
       },
-      "blocks": {
-        "p1": {
-          "type": "pdp_product",
-          "settings": {
-            "title": "Set of 3 Panels",
-            "price": "399.00",
-            "url": "/collections/all"
-          }
-        },
-        "p2": {
-          "type": "pdp_product",
-          "settings": {
-            "title": "Single Panel",
-            "price": "145.00",
-            "url": "/collections/all"
-          }
-        },
-        "p3": {
-          "type": "pdp_product",
-          "settings": {
-            "title": "Trailer Connector",
-            "price": "45.00",
-            "url": "/collections/all"
-          }
-        },
-        "p4": {
-          "type": "pdp_product",
-          "settings": {
-            "title": "Complete Stall Kit",
-            "price": "850.00",
-            "url": "/collections/all"
-          }
-        },
-        "p5": {
-          "type": "pdp_product",
-          "settings": {
-            "title": "Travel Set",
-            "price": "550.00",
-            "url": "/collections/all"
-          }
-        },
-        "p6": {
-          "type": "pdp_product",
-          "settings": {
-            "title": "Extra Connectors",
-            "price": "25.00",
-            "url": "/collections/all"
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5",
-        "p6"
-      ]
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [

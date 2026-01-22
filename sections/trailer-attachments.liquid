@@ -2,9 +2,11 @@
   <div class="trailer-attachments-container">
     <h3 class="trailer-heading">Trailer Attachments</h3>
     <ul class="trailer-list">
-      <li><strong>Call our cell:</strong> Be sure to text pictures if you contact us for mounting advice.</li>
-      <li><strong>Questions?</strong> I can help brainstorm the best locations to mount them to your trailer.</li>
-      <li><strong>Custom Fit:</strong> Every trailer is different, so we recommend contacting us to ensure the best setup.</li>
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <strong>{{ block.settings.title }}</strong> {{ block.settings.text }}
+        </li>
+      {%- endfor -%}
     </ul>
   </div>
 </div>
@@ -87,9 +89,52 @@
   "name": "Trailer Attachments",
   "class": "section",
   "settings": [],
+  "blocks": [
+    {
+      "type": "list_item",
+      "name": "List Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Bold Title (e.g. Questions?)",
+          "default": "Title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Description text here."
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Trailer Attachments"
+      "name": "Trailer Attachments",
+      "blocks": [
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Call our cell:",
+            "text": "Be sure to text pictures if you contact us for mounting advice."
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Questions?",
+            "text": "I can help brainstorm the best locations to mount them to your trailer."
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Custom Fit:",
+            "text": "Every trailer is different, so we recommend contacting us to ensure the best setup."
+          }
+        }
+      ]
     }
   ]
 }

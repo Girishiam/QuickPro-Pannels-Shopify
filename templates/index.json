@@ -12,6 +12,12 @@
         "button_link": "shopify://collections/all"
       }
     },
+    "product_grid": {
+      "type": "product-grid-custom",
+      "blocks": {},
+      "block_order": [],
+      "settings": {}
+    },
     "about_us": {
       "type": "about-us-custom",
       "settings": {
@@ -172,6 +178,7 @@
   },
   "order": [
     "hero",
+    "product_grid",
     "about_us",
     "testimonials",
     "newsletter",
