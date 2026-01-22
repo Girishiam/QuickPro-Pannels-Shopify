@@ -16,12 +16,6 @@
         "overlay_opacity": 60
       }
     },
-    "product_grid": {
-      "type": "product-grid-custom",
-      "blocks": {},
-      "block_order": [],
-      "settings": {}
-    },
     "about_us": {
       "type": "about-us-custom",
       "blocks": {
@@ -190,7 +184,6 @@
   },
   "order": [
     "hero",
-    "product_grid",
     "about_us",
     "testimonials",
     "newsletter",
