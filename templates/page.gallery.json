@@ -1,149 +1,189 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "hero_gallery": {
-            "type": "hero-custom",
-            "settings": {
-                "heading": "Fast Setup. Easy Storage. Built for Champions.",
-                "text": "<p>Portable Horse Stalls & Pens – Handmade in the USA</p>",
-                "image": "shopify://shop_images/placeholder_hero.jpg",
-                "bg_color": "#1E293B",
-                "text_color": "#FFFFFF",
-                "button_label": "Shop Now",
-                "button_link": "shopify://collections/all"
-            }
-        },
-        "gallery_slider": {
-            "type": "gallery-slider",
-            "settings": {
-                "layout": "grid",
-                "slide_height": "medium",
-                "slider_visual": "dots",
-                "auto_rotate": true,
-                "show_text_below": false
-            },
-            "blocks": {
-                "slide1": {
-                    "type": "slide",
-                    "settings": {
-                        "asset_name": "gallery1.webp",
-                        "heading": "",
-                        "subheading": "",
-                        "button_label": "",
-                        "box_align": "bottom-center",
-                        "show_text_box": false
-                    }
-                },
-                "slide2": {
-                    "type": "slide",
-                    "settings": {
-                        "asset_name": "gallery2.jpeg",
-                        "heading": "",
-                        "subheading": "",
-                        "button_label": "",
-                        "box_align": "bottom-center",
-                        "show_text_box": false
-                    }
-                },
-                "slide3": {
-                    "type": "slide",
-                    "settings": {
-                        "asset_name": "gallery3.webp",
-                        "heading": "",
-                        "subheading": "",
-                        "button_label": "",
-                        "box_align": "bottom-center",
-                        "show_text_box": false
-                    }
-                },
-                "slide4": {
-                    "type": "slide",
-                    "settings": {
-                        "asset_name": "gallery4.webp",
-                        "heading": "",
-                        "subheading": "",
-                        "button_label": "",
-                        "box_align": "bottom-center",
-                        "show_text_box": false
-                    }
-                }
-            },
-            "block_order": [
-                "slide1",
-                "slide2",
-                "slide3",
-                "slide4"
-            ]
-        },
-        "newsletter": {
-            "type": "newsletter-final",
-            "settings": {
-                "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
-                "bg_color": "#656565"
-            }
-        },
-        "faq_gallery": {
-            "type": "faq-custom",
-            "settings": {
-                "heading": "Have Questions About Our Products?"
-            },
-            "blocks": {
-                "q1": {
-                    "type": "question",
-                    "settings": {
-                        "question": "How easy are QuickPro Panels to set up and store?",
-                        "answer": "<p>QuickPro Panels are designed for speed and convenience. With no loose pieces to worry about, they can be set up in minutes. The unique design allows them to collapse to just 5' with the push of a button for easy storage.</p>"
-                    }
-                },
-                "q2": {
-                    "type": "question",
-                    "settings": {
-                        "question": "Where can I store QuickPro Panels when traveling?",
-                        "answer": "<p>Their compact 5' collapsed size makes them incredibly versatile for travel. They fit easily in a truck bed, hay rack, or standard trailer.</p>"
-                    }
-                },
-                "q3": {
-                    "type": "question",
-                    "settings": {
-                        "question": "What can I use QuickPro Panels for?",
-                        "answer": "<p>They are highly versatile! Use them as stall fronts, temporary pens, or extra fencing whether you are at home, at a rodeo, or camping.</p>"
-                    }
-                },
-                "q4": {
-                    "type": "question",
-                    "settings": {
-                        "question": "What are the size and weight of each panel?",
-                        "answer": "<p>Each panel is 4' tall with a length that extends to 9'9\". They are lightweight yet durable, weighing only 21 lbs per panel.</p>"
-                    }
-                },
-                "q5": {
-                    "type": "question",
-                    "settings": {
-                        "question": "Where are QuickPro Panels made and who uses them?",
-                        "answer": "<p>QuickPro Panels are proudly handmade in the USA. They are trusted by everyday riders and top athletes alike, including World Champions.</p>"
-                    }
-                },
-                "q6": {
-                    "type": "question",
-                    "settings": {
-                        "question": "How much does shipping cost for Quick Pro Panels?",
-                        "answer": "<p>Shipping rates vary by order size: Small Load ($195), Medium Load ($275), and Large Load ($325). We recommend shipping to a business address for the best rates.</p>"
-                    }
-                }
-            },
-            "block_order": [
-                "q1",
-                "q2",
-                "q3",
-                "q4",
-                "q5",
-                "q6"
-            ]
-        }
+  "sections": {
+    "hero_gallery": {
+      "type": "hero-custom",
+      "settings": {
+        "image": "shopify://shop_images/FB_IMG_1721050849374.jpg",
+        "heading": "Fast Setup. Easy Storage. Built for Champions.",
+        "overlay_opacity": 60
+      }
     },
-    "order": [
-        "hero_gallery",
-        "gallery_slider",
-        "newsletter",
-        "faq_gallery"
-    ]
+    "gallery_slider": {
+      "type": "gallery-slider",
+      "blocks": {
+        "slide1": {
+          "type": "slide",
+          "settings": {
+            "asset_name": "gallery1.webp",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide2": {
+          "type": "slide",
+          "settings": {
+            "asset_name": "gallery2.jpeg",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide3": {
+          "type": "slide",
+          "settings": {
+            "asset_name": "gallery3.webp",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide4": {
+          "type": "slide",
+          "settings": {
+            "asset_name": "gallery4.webp",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide1",
+        "slide2",
+        "slide3",
+        "slide4"
+      ],
+      "settings": {
+        "layout": "grid",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "newsletter": {
+      "type": "newsletter-final",
+      "settings": {
+        "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
+        "button_label": "Submit",
+        "consent_text": "By checking this box, I consent to receive marketing and promotional messages, including special offers, discounts, new product updates among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out.",
+        "bg_color": "#656565"
+      }
+    },
+    "faq_gallery": {
+      "type": "faq-custom",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "How easy are QuickPro Panels to set up and store?",
+            "answer": "<p>QuickPro Panels are designed for speed and convenience. With no loose pieces to worry about, they can be set up in minutes. The unique design allows them to collapse to just 5' with the push of a button for easy storage.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Where can I store QuickPro Panels when traveling?",
+            "answer": "<p>Their compact 5' collapsed size makes them incredibly versatile for travel. They fit easily in a truck bed, hay rack, or standard trailer.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "What can I use QuickPro Panels for?",
+            "answer": "<p>They are highly versatile! Use them as stall fronts, temporary pens, or extra fencing whether you are at home, at a rodeo, or camping.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "What are the size and weight of each panel?",
+            "answer": "<p>Each panel is 4' tall with a length that extends to 9'9\". They are lightweight yet durable, weighing only 21 lbs per panel.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Where are QuickPro Panels made and who uses them?",
+            "answer": "<p>QuickPro Panels are proudly handmade in the USA. They are trusted by everyday riders and top athletes alike, including World Champions.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "How much does shipping cost for Quick Pro Panels?",
+            "answer": "<p>Shipping rates vary by order size: Small Load ($195), Medium Load ($275), and Large Load ($325). We recommend shipping to a business address for the best rates.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "settings": {
+        "heading": "Have Questions About Our Products?"
+      }
+    }
+  },
+  "order": [
+    "hero_gallery",
+    "gallery_slider",
+    "newsletter",
+    "faq_gallery"
+  ]
 }

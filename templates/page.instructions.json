@@ -3,13 +3,9 @@
         "hero_instructions": {
             "type": "hero-custom",
             "settings": {
+                "image": "shopify://shop_images/IMG_2961.jpg",
                 "heading": "Fast Setup. Easy Storage. Built for Champions.",
-                "text": "<p>Portable Horse Stalls & Pens – Handmade in the USA</p>",
-                "image": "shopify://shop_images/placeholder_hero.jpg",
-                "bg_color": "#1E293B",
-                "text_color": "#FFFFFF",
-                "button_label": "Shop Now",
-                "button_link": "shopify://collections/all"
+                "overlay_opacity": 60
             }
         },
         "instructions_new": {
@@ -25,20 +21,20 @@
         },
         "videos_instructions": {
             "type": "video-grid",
-            "settings": {
-                "heading": "See QuickPro Panels in Action",
-                "description": "<p>Experience the durability and ease of use that makes QuickPro the top choice for champions.</p>"
-            },
             "blocks": {
                 "v1": {
                     "type": "grid_video_block",
                     "settings": {
+                        "video_obj": "shopify://files/videos/20240406_152216 (1).mp4",
+                        "video_url": "",
                         "caption": "Easy Setup"
                     }
                 },
                 "v2": {
                     "type": "grid_video_block",
                     "settings": {
+                        "video_obj": "shopify://files/videos/20241116_181027.mp4",
+                        "video_url": "",
                         "caption": "Durable Design"
                     }
                 }
@@ -46,7 +42,11 @@
             "block_order": [
                 "v1",
                 "v2"
-            ]
+            ],
+            "settings": {
+                "heading": "See QuickPro Panels in Action",
+                "description": "<p>Experience the durability and ease of use that makes QuickPro the top choice for champions.</p>"
+            }
         },
         "shipping": {
             "type": "shipping-info",
@@ -56,11 +56,17 @@
             "type": "trailer-attachments",
             "settings": {}
         },
+        "newsletter": {
+            "type": "newsletter-final",
+            "settings": {
+                "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
+                "button_label": "Submit",
+                "consent_text": "By checking this box, I consent to receive marketing and promotional messages, including special offers, discounts, new product updates among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out.",
+                "bg_color": "#656565"
+            }
+        },
         "faq_instructions": {
             "type": "faq-custom",
-            "settings": {
-                "heading": "Have Questions About Our Products?"
-            },
             "blocks": {
                 "q1": {
                     "type": "question",
@@ -112,13 +118,9 @@
                 "q4",
                 "q5",
                 "q6"
-            ]
-        },
-        "newsletter": {
-            "type": "newsletter-final",
+            ],
             "settings": {
-                "heading": "READY TO RECEIVE OUR NEWSLETTER? JOIN NOW!",
-                "bg_color": "#656565"
+                "heading": "Have Questions About Our Products?"
             }
         }
     },
