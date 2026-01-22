@@ -1,5 +1,22 @@
 <div class="product-grid-custom page-width section-{{ section.id }}-padding">
   
+  {%- liquid
+    assign products_to_show = blank
+    assign is_dynamic = false
+    
+    if section.blocks.size > 0
+      assign discount_products_count = section.blocks.size
+    else
+      assign is_dynamic = true
+      assign target_collection = collection
+      if section.settings.collection != blank
+         assign target_collection = section.settings.collection
+      endif
+      assign discount_products_count = target_collection.products_count | default: 0
+      assign products_to_show = target_collection.products
+    endif
+  -%}
+
   {% comment %} Filter Bar {% endcomment %}
   <div class="filter-bar">
     <div class="filter-left">
@@ -31,13 +48,13 @@
           <option value="price-high">Price, high to low</option>
         </select>
        </div>
-       <span class="product-count">{{ section.blocks.size }} products</span>
+       <span class="product-count">{{ discount_products_count }} products</span>
     </div>
   </div>
 
   {% comment %} Product Grid {% endcomment %}
   <div class="product-grid-container" id="product-grid">
-    {%- if section.blocks.size > 0 -%}
+    {%- if is_dynamic == false and section.blocks.size > 0 -%}
       {%- for block in section.blocks -%}
         {%- liquid
           assign product_ref = block.settings.product_item
@@ -101,16 +118,8 @@
         </a>
       {%- endfor -%}
     {%- else -%}
-    {%- else -%}
       {% comment %} Dynamic Collection Products {% endcomment %}
-      {%- liquid
-         assign target_collection = collection
-         if section.settings.collection != blank
-            assign target_collection = section.settings.collection
-         endif
-      -%}
-
-      {%- for product in target_collection.products -%}
+      {%- for product in products_to_show -%}
         {%- liquid
           assign title = product.title
           assign url = product.url
